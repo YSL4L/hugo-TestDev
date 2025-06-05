@@ -1,35 +1,75 @@
-/* Variablen für Light und Dark Theme */
+/* =========================
+   Farb- & Schriftvariablen
+   ========================= */
 :root {
-  --card-bg: #f8f9fa;
+  --accent-color: #00ffe0;
+  --bg-color: #f2f3f5;
+  --text-color: #212529;
+  --card-bg: #ffffff;
   --card-text: #212529;
+  --font-default: "JetBrains Mono", monospace;
 }
 
 body.dark {
-  --card-bg: #3a3b3c;
+  --accent-color: #00ffe0;
+  --bg-color: #1d1d1d;
+  --text-color: #f1f1f1;
+  --card-bg: #2a2a2a;
   --card-text: #f1f1f1;
 }
 
-/* Softcard-Stil */
+/* =============
+     Global Styles
+     ============= */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-default);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ================
+     Hero Terminal Title
+     ================ */
+.terminal-title {
+  cursor: text;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* =============
+     Soft Card Layout
+     ============= */
 .soft-card {
   background-color: var(--card-bg);
   color: var(--card-text);
   padding: 2rem;
   margin: 1.5rem 0;
   border-radius: 1.25rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  border-left: 3px solid var(--accent-color);
 }
 
-/* Hover-Effekt */
 .soft-card:hover {
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.12);
+  border-left: 4px solid var(--accent-color);
+}
+
+.soft-card h5 {
+  transition: color 0.2s ease;
+}
+.soft-card h5:hover {
+  color: var(--accent-color);
 }
 
 /* Links in Cards */
 .soft-card a {
-  color: var(--card-text);
-  text-decoration: underline;
-}
-.soft-card a.btn {
+  color: var(--accent-color);
   text-decoration: none;
+}
+.soft-card a:hover {
+  text-decoration: underline;
 }
