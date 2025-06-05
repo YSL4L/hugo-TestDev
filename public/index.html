@@ -26,8 +26,8 @@
 <link
   rel="preload stylesheet"
   as="style"
-  href="/assets/css/stylesheet.598dc81310988af95e1b12b3aa382d09ef35e83492f9fe2cee237e9c6cc2f2b9.css"
-  integrity="sha256-WY3IExCYivleGxKzqjgtCe816DSS&#43;f4s7iN&#43;nGzC8rk="
+  href="/assets/css/stylesheet.1f9f7f106e1bcc35d76263e14f7c3314c38506766b7624403bbb9e09650f4b99.css"
+  integrity="sha256-H59/EG4bzDXXYmPhT3wzFMOFBnZrdiRAO7ueCWUPS5k="
   crossorigin="anonymous"
 />
 
@@ -108,46 +108,130 @@
 <main class="container py-5">
   
   <section class="text-center mb-5">
-    <h1 class="display-4 fw-bold">Stadtforschung & KI</h1>
-    <p class="lead mt-3">
-      Diese Website verbindet kulturanthropologische Stadtforschung mit
-      digitalen Methoden.
+    <h1 class="display-4 fw-bold terminal-title">
+      <span id="typed-title"></span>
+      <span class="cursor-title" id="cursor-title">|</span>
+    </h1>
+    <p class="lead mt-3 terminal-subtext">
+      <span id="typed-subtext"></span>
+      <span class="cursor-subtext" id="cursor-subtext" style="display: none"
+        >|</span
+      >
     </p>
-    <a href="/posts/" class="btn btn-primary btn-lg mt-4">Beiträge entdecken</a>
   </section>
 
   
-  <section class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-      <div class="soft-card h-100 text-center p-4">
-        <h5 class="fw-bold mb-3">Stadtforschung</h5>
-        <p>Theorie und Praxis der urbanen Kulturanalyse.</p>
-        <a href="/pages/stadtforschung" class="btn btn-outline-primary mt-2"
-          >Mehr erfahren</a
-        >
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="soft-card h-100 text-center p-4">
-        <h5 class="fw-bold mb-3">Methoden</h5>
-        <p>Teilnehmende Beobachtung, Go-Along, Mapping etc.</p>
-        <a href="/pages/methoden" class="btn btn-outline-primary mt-2"
-          >Methoden ansehen</a
-        >
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="soft-card h-100 text-center p-4">
-        <h5 class="fw-bold mb-3">Quiz</h5>
-        <p>Teste dein Wissen rund um Stadt, KI und Forschung!</p>
-        <a href="/pages/quiz" class="btn btn-outline-primary mt-2"
-          >Quiz starten</a
-        >
-      </div>
-    </div>
+  <section class="mt-5">
+    <table style="width: 100%; border-collapse: separate; border-spacing: 15px">
+      <tr>
+        <td style="width: 75%; vertical-align: top">
+          
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+            
+            <div class="col">
+              <div class="soft-card h-100 text-center p-4 d-flex flex-column">
+                <h5 class="fw-bold mb-3">Stadtforschung</h5>
+                <p class="flex-grow-1">
+                  Theorie und Praxis der urbanen Kulturanalyse.
+                </p>
+                <a
+                  href="/pages/stadtforschung"
+                  class="btn btn-outline-primary mt-auto"
+                >
+                  Mehr erfahren
+                </a>
+              </div>
+            </div>
+            
+            <div class="col">
+              <div class="soft-card h-100 text-center p-4 d-flex flex-column">
+                <h5 class="fw-bold mb-3">Methoden</h5>
+                <p class="flex-grow-1">
+                  Teilnehmende Beobachtung, Go-Along, Mapping etc.
+                </p>
+                <a
+                  href="/pages/methoden"
+                  class="btn btn-outline-primary mt-auto"
+                >
+                  Methoden ansehen
+                </a>
+              </div>
+            </div>
+            
+            <div class="col">
+              <div class="soft-card h-100 text-center p-4 d-flex flex-column">
+                <h5 class="fw-bold mb-3">Quiz</h5>
+                <p class="flex-grow-1">
+                  Teste dein Wissen rund um Stadt, KI und Forschung!
+                </p>
+                <a href="/pages/quiz" class="btn btn-outline-primary mt-auto">
+                  Quiz starten
+                </a>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td style="width: 25%; vertical-align: top">
+          
+          <div
+            class="soft-card text-center p-4 border-dotted d-flex flex-column"
+            style="min-height: 350px; height: auto"
+          >
+            <div class="mb-3" style="font-size: 2rem">🤖</div>
+            <p class="fw-bold mb-3">
+              Ich erledige Aufgaben, auf die du keine Lust hast.
+            </p>
+            <div class="mt-auto d-flex flex-wrap justify-content-center gap-2">
+              <a href="#" class="btn btn-danger btn-sm">Bugfixes</a>
+              <a href="#" class="btn btn-info btn-sm">Versionspflege</a>
+              <a href="#" class="btn btn-warning btn-sm">Tests</a>
+              <a href="#" class="btn btn-secondary btn-sm"
+                >Altcode reparieren</a
+              >
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
   </section>
+
+  
+  <script>
+    const titleText = "Stadtforschung & KI";
+    const subtitleText =
+      "Diese Website verbindet kulturanthropologische Stadtforschung mit digitalen Methoden.";
+
+    const typedTitle = document.getElementById("typed-title");
+    const cursorTitle = document.getElementById("cursor-title");
+    const typedSubtext = document.getElementById("typed-subtext");
+    const cursorSubtext = document.getElementById("cursor-subtext");
+
+    let i = 0;
+    let j = 0;
+
+    function typeTitle() {
+      if (i < titleText.length) {
+        typedTitle.textContent += titleText.charAt(i);
+        i++;
+        setTimeout(typeTitle, 80);
+      } else {
+        cursorTitle.style.display = "none";
+        cursorSubtext.style.display = "inline-block";
+        typeSubtext();
+      }
+    }
+
+    function typeSubtext() {
+      if (j < subtitleText.length) {
+        typedSubtext.textContent += subtitleText.charAt(j);
+        j++;
+        setTimeout(typeSubtext, 40);
+      }
+      
+    }
+
+    document.addEventListener("DOMContentLoaded", typeTitle);
+  </script>
 </main>
 
     </main>

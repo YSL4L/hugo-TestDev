@@ -18,9 +18,9 @@ body.dark {
   --card-text: #f1f1f1;
 }
 
-/* =============
+/* =================
      Global Styles
-     ============= */
+     ================= */
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -29,18 +29,48 @@ body {
   line-height: 1.6;
 }
 
-/* ================
+/* =================
      Hero Terminal Title
-     ================ */
+     ================= */
 .terminal-title {
-  cursor: text;
   color: var(--accent-color);
   font-weight: 600;
+  cursor: text;
 }
 
-/* =============
+#typed-text,
+#typed-title,
+#typed-subtext {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* =================
+     Blinking Cursor
+     ================= */
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.cursor-title {
+  display: inline-block;
+  width: 1ch;
+  color: var(--accent-color);
+  animation: blink 1s steps(2, start) infinite;
+}
+
+.cursor-subtext {
+  display: inline-block;
+  width: 1ch;
+  color: #ffffff;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+/* =================
      Soft Card Layout
-     ============= */
+     ================= */
 .soft-card {
   background-color: var(--card-bg);
   color: var(--card-text);
@@ -61,15 +91,44 @@ body {
 .soft-card h5 {
   transition: color 0.2s ease;
 }
+
 .soft-card h5:hover {
   color: var(--accent-color);
 }
 
-/* Links in Cards */
 .soft-card a {
   color: var(--accent-color);
   text-decoration: none;
 }
+
 .soft-card a:hover {
   text-decoration: underline;
+}
+
+/* Optionaler Boost für spezielle Softcard wie „Quest Box“ */
+.quest-softcard {
+  max-width: 420px;
+  margin: 0 auto;
+  background-color: var(--card-bg);
+  border: 2px dashed var(--accent-color);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quest-softcard:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.18);
+}
+
+/* Dotted Border für Quest-Karte */
+.border-dotted {
+  border: 2px dotted var(--accent-color);
+  border-radius: 1.25rem;
+}
+
+/* Optional: Quest-Emoji größer auf mobilen Geräten */
+@media (max-width: 576px) {
+  .soft-card .mb-3 {
+    font-size: 1.75rem;
+  }
 }
