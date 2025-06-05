@@ -10,7 +10,7 @@
 <meta name="robots" content="noindex, nofollow" />
 
 <title>
-  404 Page not found | 
+  404 Page not found | Your Site Title
 </title>
 <meta
   name="keywords"
@@ -61,52 +61,113 @@
 
 <body class="list" id="top">
 <script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
+  if (localStorage.getItem("pref-theme") === "dark") {
+    document.body.classList.add("dark");
+  } else if (localStorage.getItem("pref-theme") === "light") {
+    document.body.classList.remove("dark");
+  } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    document.body.classList.add("dark");
+  }
 </script>
 
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <ul id="menu">
+<header class="tech-navbar border-bottom">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid"><a
+        class="navbar-brand terminal-title"
+        href='/'
+        accesskey="h"
+        title="Your Site Title (Alt + H)"
+      > Your Site Title
+      </a><button
+        id="theme-toggle"
+        class="btn btn-outline-secondary btn-sm ms-3"
+        accesskey="t"
+        title="(Alt + T)"
+        aria-label="Toggle theme"
+      >
+        <svg
+          id="moon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg
+          id="sun"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button><button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#techNavbarContent"
+        aria-controls="techNavbarContent"
+        aria-expanded="false"
+        aria-label="Menü ein- und ausklappen"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button><div class="collapse navbar-collapse" id="techNavbarContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="nav-link "
+              href="//localhost:1313/"
+            >
+              Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link "
+              href="//localhost:1313/about/"
+            >
+              About
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link "
+              href="//localhost:1313/posts/"
+            >
+              Blog
+            </a>
+          </li>
         </ul>
-    </nav>
+      </div>
+    </div>
+  </nav>
 </header>
 <main class="main">
 <div class="not-found">404</div>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="//localhost:1313/"></a></span> · 
+        <span>&copy; 2025 <a href="//localhost:1313/">Your Site Title</a></span> · 
 
     <span>
         Powered by

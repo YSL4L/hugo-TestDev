@@ -8,9 +8,6 @@
     <loc>//localhost:1313/tags/ki/</loc>
     <lastmod>2025-06-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/</loc>
-    <lastmod>2025-06-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/posts/first-test-post/</loc>
     <lastmod>2025-06-03T00:00:00+00:00</lastmod>
   </url><url>
@@ -24,6 +21,9 @@
     <lastmod>2025-06-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//localhost:1313/tags/urban/</loc>
+    <lastmod>2025-06-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/</loc>
     <lastmod>2025-06-03T00:00:00+00:00</lastmod>
   </url>
 </urlset>

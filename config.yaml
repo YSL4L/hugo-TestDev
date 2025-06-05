@@ -1,0 +1,15 @@
+# A minimal config.yaml that won't break your existing setup
+title: "Your Site Title"
+
+# Just add the menu items for your navbar
+menu:
+  main:
+    - name: "Home"
+      url: "/"
+      weight: 1
+    - name: "About"
+      url: "/about/"
+      weight: 2
+    - name: "Blog"
+      url: "/posts/"
+      weight: 3
