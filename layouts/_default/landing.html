@@ -1,0 +1,46 @@
+{{ define "main" }}
+<main class="container py-5">
+  <!-- Hero Section -->
+  <section class="text-center mb-5">
+    <h1 class="display-4 fw-bold">Stadtforschung & KI</h1>
+    <p class="lead mt-3">
+      Diese Website verbindet kulturanthropologische Stadtforschung mit
+      digitalen Methoden.
+    </p>
+    <a href="/posts/" class="btn btn-primary btn-lg mt-4">Beiträge entdecken</a>
+  </section>
+
+  <!-- Softcards Section -->
+  <section class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="soft-card h-100 text-center p-4">
+        <h5 class="fw-bold mb-3">Stadtforschung</h5>
+        <p>Theorie und Praxis der urbanen Kulturanalyse.</p>
+        <a href="/pages/stadtforschung" class="btn btn-outline-primary mt-2"
+          >Mehr erfahren</a
+        >
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="soft-card h-100 text-center p-4">
+        <h5 class="fw-bold mb-3">Methoden</h5>
+        <p>Teilnehmende Beobachtung, Go-Along, Mapping etc.</p>
+        <a href="/pages/methoden" class="btn btn-outline-primary mt-2"
+          >Methoden ansehen</a
+        >
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="soft-card h-100 text-center p-4">
+        <h5 class="fw-bold mb-3">Quiz</h5>
+        <p>Teste dein Wissen rund um Stadt, KI und Forschung!</p>
+        <a href="/pages/quiz" class="btn btn-outline-primary mt-2"
+          >Quiz starten</a
+        >
+      </div>
+    </div>
+  </section>
+</main>
+{{ end }}

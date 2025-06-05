@@ -1,5 +1,35 @@
-/*
-This is just a placeholder blank stylesheet so as to support adding custom styles budled with theme's default styles
+/* Variablen für Light und Dark Theme */
+:root {
+  --card-bg: #f8f9fa;
+  --card-text: #212529;
+}
 
-Read https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#bundling-custom-css-with-themes-assets for more info
-*/
+body.dark {
+  --card-bg: #3a3b3c;
+  --card-text: #f1f1f1;
+}
+
+/* Softcard-Stil */
+.soft-card {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  padding: 2rem;
+  margin: 1.5rem 0;
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Hover-Effekt */
+.soft-card:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Links in Cards */
+.soft-card a {
+  color: var(--card-text);
+  text-decoration: underline;
+}
+.soft-card a.btn {
+  text-decoration: none;
+}
