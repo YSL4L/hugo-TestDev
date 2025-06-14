@@ -270,16 +270,16 @@ body.light .nav-link:hover {
   right: 1rem;
   z-index: 1050;
 }
-#bot-chat-window {
-  white-space: normal; /* Zeilenumbrüche im HTML werden ignoriert */
+#bot-chat-window .text-accent {
+  white-space: normal !important;
   overflow-wrap: break-word;
   word-break: break-word;
-  overflow-x: hidden;
 }
 
+/* Jede einzelne Nachricht im Chat auch umbrec̱hen */
 #bot-chat-window > div {
-  /* Falls du jedem einzelnen Message-Container noch trennen möchtest: */
-  overflow-wrap: break-word;
-  word-break: break-word;
   white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }

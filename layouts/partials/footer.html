@@ -1,7 +1,7 @@
-{{- if not (.Param "hideFooter") }}
+{{- /* layouts/partials/footer.html */ -}} {{- if not (.Param "hideFooter") }}
 <!-- ===========================
-     Chatbot als Offcanvas mit Bootstrap Card-Design und Minimier-Funktion
-     =========================== -->
+       Chatbot als Offcanvas mit Bootstrap Card-Design und Minimier-Funktion
+       =========================== -->
 <button
   class="btn btn-primary rounded-circle position-fixed d-flex align-items-center justify-content-center"
   style="
@@ -60,15 +60,16 @@
       ></button>
     </div>
   </div>
+
   <div class="offcanvas-body p-3" id="botFullContent">
-    <!-- Bootstrap Card für den Bot -->
+    <!-- Bootstrap-Card für den Bot -->
     <div class="card border-0 h-100 shadow-sm">
       <div
         class="card-header bg-light border-bottom d-flex justify-content-center p-2"
       >
         <div class="d-flex flex-wrap justify-content-center gap-2">
           <button class="btn btn-danger btn-sm question-btn">Bugfixes</button>
-          <button class="btn btn-info btn-sm text-white question-btn">
+          <button class="btn btn-info btn-sm question-btn">
             Versionspflege
           </button>
           <button class="btn btn-warning btn-sm question-btn">Tests</button>
@@ -85,302 +86,226 @@
           style="
             height: 350px;
             background-color: var(--card-bg, #fff);
+            white-space: pre-wrap;
+            word-wrap: break-word;
             overflow-wrap: break-word;
             word-break: break-word;
-            max-width: 100%;
+            overflow-x: hidden;
           "
         >
-          <!-- Antworten erscheinen hier -->
+          <!-- Einstiegs-Nachricht -->
+          <!-- eine einzige, unverwrungene Zeile -->
           <div class="text-accent mb-1">
-            <div class="text-accent mb-1">
-              <span class="fw-bold">Bot:</span> Hallo! Wie kann ich dir helfen?
-              Klicke eine der obigen Optionen.
-            </div>
+            <span class="fw-bold">Bot:</span> Hallo! Wie kann ich dir helfen?
+            Klicke eine der obigen Optionen.
           </div>
         </div>
-
-        <div class="card-footer bg-light text-center p-2 small text-muted">
-          Powered by AI - Stadtforschung & KI
-        </div>
       </div>
-    </div>
 
-    <!-- Minimierter Bot -->
-    <div class="offcanvas-body p-3" id="botMinimized" style="display: none">
-      <div class="d-flex justify-content-between align-items-center">
-        <span class="text-muted">Bot minimiert</span>
-        <button class="btn btn-sm btn-primary" id="expandBot">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"
-            />
-          </svg>
-          Erweitern
-        </button>
+      <div class="card-footer bg-light text-center p-2 small text-muted">
+        Powered by AI – Stadtforschung &amp; KI
       </div>
     </div>
   </div>
 
-  <!-- Eigentlicher Footer-Inhalt kommt ans Ende -->
-  <footer class="footer">
-    {{- if not site.Params.footer.hideCopyright }} {{- if site.Copyright }}
-    <span>{{ site.Copyright | markdownify }}</span>
-    {{- else }} {{- $rootURL := "/" | relLangURL }}
-    <span
-      >&copy; {{ now.Year }} <a href="{{ $rootURL }}">{{ site.Title }}</a></span
-    >
-    {{- end }} {{- print " · " }} {{- end }} {{- with site.Params.footer.text }}
-    {{ . | markdownify }} {{- print " · " }} {{- end }}
+  <!-- Minimierter Bot -->
+  <div class="offcanvas-body p-3 d-none" id="botMinimized">
+    <div class="d-flex justify-content-between align-items-center">
+      <span class="text-muted">Bot minimiert</span>
+      <button class="btn btn-sm btn-primary" id="expandBot">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"
+          />
+        </svg>
+        Erweitern
+      </button>
+    </div>
+  </div>
+</div>
 
-    <span>
-      Powered by
-      <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &
-      <a
-        href="https://github.com/adityatelange/hugo-PaperMod/"
-        target="_blank"
-        rel="noopener"
-        >PaperMod</a
-      >
-    </span>
-  </footer>
-  {{- end }} {{- if not site.Params.disableScrollToTop }}
-  <a
-    href="#top"
-    id="top-link"
-    class="top-link"
-    accesskey="g"
-    title="Go to Top (Alt+G)"
-    aria-label="go to top"
+<!-- ===========================
+       Eigentlicher Footer-Inhalt
+       =========================== -->
+<footer class="footer">
+  {{- if not site.Params.footer.hideCopyright }} {{- if site.Copyright }}
+  <span>{{ site.Copyright | markdownify }}</span>
+  {{- else }} {{- $rootURL := "/" | relLangURL }}
+  <span
+    >&copy; {{ now.Year }} <a href="{{ $rootURL }}">{{ site.Title }}</a></span
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 12 6"
-      fill="currentColor"
-    >
-      <path d="M12 6H0l6-6z" />
-    </svg>
-  </a>
-  {{- end }} {{ partial "extend_footer.html" . }}
+  {{- end }} {{- print " · " }} {{- end }} {{- with site.Params.footer.text }}
+  {{ . | markdownify }} {{- print " · " }} {{- end }}
 
-  <script>
-    // Menu-Scroll-Persistence
-    let menu = document.getElementById("menu");
-    if (menu) {
-      menu.scrollLeft = localStorage.getItem("menu-scroll-position") || 0;
-      menu.onscroll = () =>
-        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+  <span>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &
+    <a
+      href="https://github.com/adityatelange/hugo-PaperMod/"
+      target="_blank"
+      rel="noopener"
+      >PaperMod</a
+    >
+  </span>
+</footer>
+{{- end }} {{- if not site.Params.disableScrollToTop }}
+<a
+  href="#top"
+  id="top-link"
+  class="top-link"
+  accesskey="g"
+  title="Go to Top (Alt + G)"
+  aria-label="Go to Top"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 12 6"
+    fill="currentColor"
+  >
+    <path d="M12 6H0l6-6z" />
+  </svg>
+</a>
+{{- end }} {{ partial "extend_footer.html" . }}
+
+<script>
+  // 1) Menu-Scroll-Persistence
+  let menu = document.getElementById("menu");
+  if (menu) {
+    menu.scrollLeft = localStorage.getItem("menu-scroll-position") || 0;
+    menu.onscroll = () =>
+      localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+  }
+
+  // 2) Smooth-Scroll für interne Ankerlinks
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      e.preventDefault();
+      let id = anchor.getAttribute("href").slice(1);
+      let target = document.getElementById(decodeURIComponent(id));
+      if (target) {
+        target.scrollIntoView({
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+            .matches
+            ? "auto"
+            : "smooth",
+        });
+        history.pushState(null, null, `#${id}`);
+      }
+    });
+  });
+</script>
+
+{{- if not site.Params.disableScrollToTop }}
+<script>
+  // Top-Link einblenden
+  let topLink = document.getElementById("top-link");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 800) {
+      topLink.style.visibility = "visible";
+      topLink.style.opacity = "1";
+    } else {
+      topLink.style.visibility = "hidden";
+      topLink.style.opacity = "0";
+    }
+  });
+</script>
+{{- end }} {{- if not site.Params.disableThemeToggle }}
+<script>
+  // Theme-Toggle
+  document.getElementById("theme-toggle")?.addEventListener("click", () => {
+    let isDark = document.body.classList.toggle("dark");
+    localStorage.setItem("pref-theme", isDark ? "dark" : "light");
+  });
+</script>
+{{- end }} {{- if and (eq .Kind "page") (ne .Layout "archives") (ne .Layout
+"search") (.Param "ShowCodeCopyButtons") }}
+<script>
+  // Copy-to-Clipboard-Buttons
+  document.querySelectorAll("pre > code").forEach((codeblock) => {
+    let container = codeblock.closest("div.highlight") || codeblock.parentNode;
+    let btn = document.createElement("button");
+    btn.className = "copy-code";
+    btn.textContent = '{{ i18n "code_copy" | default "copy" }}';
+    btn.addEventListener("click", () => {
+      navigator.clipboard.writeText(codeblock.textContent).then(() => {
+        btn.textContent = '{{ i18n "code_copied" | default "copied!" }}';
+        setTimeout(
+          () => (btn.textContent = '{{ i18n "code_copy" | default "copy" }}'),
+          2000
+        );
+      });
+    });
+    container.appendChild(btn);
+  });
+</script>
+{{- end }}
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const faq = {
+      Bugfixes: "Ich kümmere mich um Fehlerbehebungen in deinem Code.",
+      Versionspflege:
+        "Ich aktualisiere Abhängigkeiten und sorge für aktuelle Versionen.",
+      Tests: "Ich schreibe und führe Unit- und Integrationstests für dich aus.",
+      "Altcode reparieren":
+        "Ich überarbeite und verbessere alten oder unleserlichen Code.",
+    };
+
+    // 3) Init Chatbot & Minimize/Expand-Logik
+    const minimizeBtn = document.getElementById("minimizeBot");
+    const expandBtn = document.getElementById("expandBot");
+    const fullContent = document.getElementById("botFullContent");
+    const minimized = document.getElementById("botMinimized");
+    const offcanvas = document.getElementById("botOffcanvas");
+
+    function appendMsg(who, text) {
+      const chatWin = document.getElementById("bot-chat-window");
+      if (!chatWin) return;
+      let d = document.createElement("div");
+      d.className = who === "bot" ? "text-accent mb-1" : "mb-1";
+      d.style.whiteSpace = "pre-wrap";
+      d.style.overflowWrap = "break-word";
+      d.style.wordBreak = "break-word";
+      d.innerHTML =
+        who === "bot"
+          ? '<span class="fw-bold">Bot:</span> ' + text
+          : '<span class="text-primary fw-bold">Du:</span> ' + text;
+      chatWin.appendChild(d);
+      chatWin.scrollTop = chatWin.scrollHeight;
     }
 
-    // Smooth-Scroll für interne Ankerlinks
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", (e) => {
-        e.preventDefault();
-        let id = anchor.getAttribute("href").slice(1);
-        let target = document.getElementById(decodeURIComponent(id));
-        if (target) {
-          target.scrollIntoView({
-            behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
-              .matches
-              ? "auto"
-              : "smooth",
-          });
-          history.pushState(null, null, `#${id}`);
-        }
-      });
+    // Minimize / Expand
+    minimizeBtn?.addEventListener("click", () => {
+      fullContent.classList.add("d-none");
+      minimized.classList.remove("d-none");
     });
-  </script>
+    expandBtn?.addEventListener("click", () => {
+      minimized.classList.add("d-none");
+      fullContent.classList.remove("d-none");
+    });
 
-  {{- if not site.Params.disableScrollToTop }}
-  <script>
-    let topLink = document.getElementById("top-link");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 800) {
-        topLink.style.visibility = "visible";
-        topLink.style.opacity = "1";
-      } else {
-        topLink.style.visibility = "hidden";
-        topLink.style.opacity = "0";
-      }
+    // On canvas show, reset to full
+    offcanvas?.addEventListener("shown.bs.offcanvas", () => {
+      minimized.classList.add("d-none");
+      fullContent.classList.remove("d-none");
     });
-  </script>
-  {{- end }} {{- if not site.Params.disableThemeToggle }}
-  <script>
-    document.getElementById("theme-toggle")?.addEventListener("click", () => {
-      let isDark = document.body.classList.toggle("dark");
-      localStorage.setItem("pref-theme", isDark ? "dark" : "light");
-    });
-  </script>
-  {{- end }} {{- if and (eq .Kind "page") (ne .Layout "archives") (ne .Layout
-  "search") (.Param "ShowCodeCopyButtons") }}
-  <script>
-    document.querySelectorAll("pre > code").forEach((codeblock) => {
-      let container =
-        codeblock.closest("div.highlight") || codeblock.parentNode;
-      let btn = document.createElement("button");
-      btn.className = "copy-code";
-      btn.textContent = '{{ i18n "code_copy" | default "copy" }}';
+
+    // Schnell-Fragen
+    document.querySelectorAll("#botOffcanvas .question-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
-        navigator.clipboard.writeText(codeblock.textContent).then(() => {
-          btn.textContent = '{{ i18n "code_copied" | default "copied!" }}';
-          setTimeout(() => {
-            btn.textContent = '{{ i18n "code_copy" | default "copy" }}';
-          }, 2000);
-        });
+        let q = btn.textContent.trim();
+        appendMsg("user", q);
+        setTimeout(
+          () => appendMsg("bot", faq[q] || "Dazu habe ich keine Antwort."),
+          300
+        );
       });
-      container.appendChild(btn);
     });
-  </script>
-  {{- end }}
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const faq = {
-        Bugfixes: "Ich kümmere mich um Fehlerbehebungen in deinem Code.",
-        Versionspflege:
-          "Ich aktualisiere Abhängigkeiten und sorge für aktuelle Versionen.",
-        Tests:
-          "Ich schreibe und führe Unit- und Integrationstests für dich aus.",
-        "Altcode reparieren":
-          "Ich überarbeite und verbessere alten oder unleserlichen Code.",
-      };
-
-      // Ein/Ausklapp-Funktionalität
-      const minimizeBtn = document.getElementById("minimizeBot");
-      const expandBtn = document.getElementById("expandBot");
-      const fullContent = document.getElementById("botFullContent");
-      const minimizedContent = document.getElementById("botMinimized");
-
-      if (minimizeBtn && expandBtn && fullContent && minimizedContent) {
-        minimizeBtn.addEventListener("click", () => {
-          fullContent.classList.add("d-none");
-          minimizedContent.classList.remove("d-none");
-        });
-
-        expandBtn.addEventListener("click", () => {
-          minimizedContent.classList.add("d-none");
-          fullContent.classList.remove("d-none");
-        });
-      }
-
-      // Warten, bis das Offcanvas vollständig geöffnet ist
-      const botOffcanvas = document.getElementById("botOffcanvas");
-      if (botOffcanvas) {
-        botOffcanvas.addEventListener("shown.bs.offcanvas", function () {
-          initChatBot();
-          // Wenn minimiert war, beim Öffnen immer den vollen Inhalt zeigen
-          if (fullContent && minimizedContent) {
-            minimizedContent.classList.add("d-none");
-            fullContent.classList.remove("d-none");
-          }
-        });
-      }
-
-      function initChatBot() {
-        const chatWin = document.getElementById("bot-chat-window");
-
-        // Überprüfen, ob das Chat-Fenster gefunden wurde
-        if (!chatWin) {
-          console.error("Chat-Fenster nicht gefunden!");
-          return;
-        }
-
-        // Alle bisherigen Event-Listener entfernen, um Duplikate zu vermeiden
-        document
-          .querySelectorAll("#botOffcanvas .question-btn")
-          .forEach((btn) => {
-            btn.replaceWith(btn.cloneNode(true));
-          });
-
-        // Neue Event-Listener hinzufügen
-        document
-          .querySelectorAll("#botOffcanvas .question-btn")
-          .forEach((btn) => {
-            btn.addEventListener("click", () => {
-              let q = btn.textContent.trim();
-              appendMsg("user", q);
-              setTimeout(
-                () =>
-                  appendMsg("bot", faq[q] || "Dazu habe ich keine Antwort."),
-                300
-              );
-            });
-          });
-
-        function appendMsg(who, text) {
-          console.log("Nachricht hinzufügen:", who, text); // Debug-Ausgabe
-          let d = document.createElement("div");
-          d.className = who === "bot" ? "text-accent mb-1" : "mb-1";
-
-          // Stil für Textumbruch hinzufügen
-          d.style.overflowWrap = "break-word";
-          d.style.wordBreak = "break-word";
-          d.style.maxWidth = "100%";
-
-          // Füge etwas Styling zum Chat hinzu
-          if (who === "bot") {
-            d.innerHTML = '<span class="fw-bold">Bot:</span> ' + text;
-          } else {
-            d.innerHTML =
-              '<span class="text-primary fw-bold">Du:</span> ' + text;
-          }
-
-          chatWin.appendChild(d); // Verwende appendChild statt append für bessere Kompatibilität
-          chatWin.scrollTop = chatWin.scrollHeight;
-        }
-      }
-
-      // Auch direkt initialisieren, falls das Offcanvas bereits geöffnet ist
-      initChatBot();
-    });
-  </script>
-  <script>
-    // Vereinfachte Ein/Ausklapp-Funktion für den Bot
-    document.addEventListener("DOMContentLoaded", function () {
-      // Buttons zum Ein- und Ausklappen
-      const minimizeBtn = document.getElementById("minimizeBot");
-      const expandBtn = document.getElementById("expandBot");
-
-      // Inhalts-Bereiche
-      const fullContent = document.getElementById("botFullContent");
-      const minimizedContent = document.getElementById("botMinimized");
-
-      // Debug-Ausgabe zur Überprüfung
-      console.log("Bot-Elemente:", {
-        minimizeBtn: !!minimizeBtn,
-        expandBtn: !!expandBtn,
-        fullContent: !!fullContent,
-        minimizedContent: !!minimizedContent,
-      });
-
-      // Minimieren-Button
-      if (minimizeBtn) {
-        minimizeBtn.onclick = function (e) {
-          e.stopPropagation(); // Verhindert Bubbling
-          console.log("Minimieren geklickt");
-
-          // Direkte DOM-Manipulation statt CSS-Klassen
-          fullContent.style.display = "none";
-          minimizedContent.style.display = "block";
-        };
-      }
-
-      // Erweitern-Button
-      if (expandBtn) {
-        expandBtn.onclick = function (e) {
-          e.stopPropagation(); // Verhindert Bubbling
-          console.log("Erweitern geklickt");
-
-          // Direkte DOM-Manipulation statt CSS-Klassen
-          minimizedContent.style.display = "none";
-          fullContent.style.display = "block";
-        };
-      }
-    });
-  </script>
-</div>
+  });
+</script>
