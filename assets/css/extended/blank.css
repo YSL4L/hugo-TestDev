@@ -132,3 +132,123 @@ body {
     font-size: 1.75rem;
   }
 }
+
+/* Tech-themed navbar styling */
+.tech-navbar {
+  background-color: rgba(13, 17, 23, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(100, 100, 100, 0.2);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.terminal-text {
+  font-family: "Consolas", "Monaco", monospace;
+  letter-spacing: 0.05em;
+}
+
+.terminal-cursor {
+  animation: cursor-blink 1.2s infinite;
+  font-weight: bold;
+  color: var(--bs-primary);
+}
+
+@keyframes cursor-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.navbar-brand {
+  font-size: 1.35rem;
+}
+
+.nav-link {
+  position: relative;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0.75rem;
+  margin: 0 0.2rem;
+  border-radius: 4px;
+}
+
+.nav-link:hover {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+  color: var(--bs-primary);
+  background-color: rgba(var(--bs-primary-rgb), 0.15);
+}
+
+.nav-link.active:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background-color: var(--bs-primary);
+  border-radius: 2px;
+}
+
+/* Ensure navbar-toggler has tech styling */
+.navbar-toggler {
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(var(--bs-primary-rgb), 0.25);
+}
+
+/* Dark theme adjustments */
+@media (prefers-color-scheme: dark) {
+  body:not(.light) .tech-navbar {
+    background-color: rgba(13, 17, 23, 0.95);
+  }
+}
+
+/* Light theme adjustments */
+body.light .tech-navbar {
+  background-color: rgba(250, 250, 250, 0.95);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light .nav-link {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+body.light .nav-link:hover {
+  color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.bot-img {
+  display: block;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Frage-Buttons (kein Button-Look, nur Link-Look) */
+.quest-softcard .question {
+  color: var(--accent-color);
+  text-decoration: none;
+  display: block;
+}
+.quest-softcard .question:hover {
+  text-decoration: underline;
+}
+
+/* Antwortfeld */
+#bot-answer {
+  margin-top: 1rem;
+  color: var(--card-text);
+}

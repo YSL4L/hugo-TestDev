@@ -29,8 +29,8 @@
 <link
   rel="preload stylesheet"
   as="style"
-  href="/assets/css/stylesheet.1f9f7f106e1bcc35d76263e14f7c3314c38506766b7624403bbb9e09650f4b99.css"
-  integrity="sha256-H59/EG4bzDXXYmPhT3wzFMOFBnZrdiRAO7ueCWUPS5k="
+  href="/assets/css/stylesheet.314604fedc1901530d928b817b84d6c4635b28f382bd75927fb5deba30f59121.css"
+  integrity="sha256-MUYE/twZAVMNkouBe4TWxGNbKPOCvXWSf7XeujD1kSE="
   crossorigin="anonymous"
 />
 
@@ -76,59 +76,23 @@
   }
 </script>
 
-<header class="tech-navbar border-bottom">
-  <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid"><a
-        class="navbar-brand terminal-title"
+<header class="tech-navbar">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg py-3">
+      <a
+        class="navbar-brand terminal-text"
         href='/'
         accesskey="h"
         title="Your Site Title (Alt + H)"
-      > Your Site Title
-      </a><button
-        id="theme-toggle"
-        class="btn btn-outline-secondary btn-sm ms-3"
-        accesskey="t"
-        title="(Alt + T)"
-        aria-label="Toggle theme"
       >
-        <svg
-          id="moon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-        <svg
-          id="sun"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-      </button><button
-        class="navbar-toggler"
+        <span class="text-primary">&gt;</span>
+        <span class="fw-bold">Your Site Title</span
+        ><span class="terminal-cursor">_</span>
+      </a>
+
+      
+      <button
+        class="navbar-toggler border-0 shadow-none"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#techNavbarContent"
@@ -137,37 +101,109 @@
         aria-label="Menü ein- und ausklappen"
       >
         <span class="navbar-toggler-icon"></span>
-      </button><div class="collapse navbar-collapse" id="techNavbarContent">
+      </button>
+
+      
+      <div class="collapse navbar-collapse" id="techNavbarContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a
-              class="nav-link "
+              class="nav-link px-3 "
               href="//localhost:1313/"
             >
-              Home
+              <span class="nav-text">Home</span>
             </a>
           </li>
           <li class="nav-item">
             <a
-              class="nav-link "
+              class="nav-link px-3 "
               href="//localhost:1313/about/"
             >
-              About
+              <span class="nav-text">About</span>
             </a>
           </li>
           <li class="nav-item">
             <a
-              class="nav-link "
+              class="nav-link px-3 "
               href="//localhost:1313/posts/"
             >
-              Blog
+              <span class="nav-text">Blog</span>
             </a>
+          </li>
+
+          
+          <li class="nav-item ms-lg-2">
+            <button
+              id="theme-toggle"
+              class="btn btn-sm btn-outline-primary"
+              accesskey="t"
+              title="(Alt + T)"
+              aria-label="Toggle theme"
+            >
+              <svg
+                id="moon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                ></path>
+              </svg>
+              <svg
+                id="sun"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            </button>
           </li>
         </ul>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </header>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const themeToggle = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    
+    const currentTheme = localStorage.getItem("theme") || "dark";
+    body.classList.toggle("light", currentTheme === "light");
+
+    
+    themeToggle.addEventListener("click", function () {
+      body.classList.toggle("light");
+      const theme = body.classList.contains("light") ? "light" : "dark";
+      localStorage.setItem("theme", theme);
+    });
+  });
+</script>
 <main class="main">
 <header class="page-header">
     <h1>Categories</h1>
