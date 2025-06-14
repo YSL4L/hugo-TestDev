@@ -29,8 +29,8 @@
 <link
   rel="preload stylesheet"
   as="style"
-  href="/assets/css/stylesheet.e94c45babd38c24dc3c3e41acf91c439b0f33d427bf4ea24aae0dda2d0d80fc4.css"
-  integrity="sha256-6UxFur04wk3Dw&#43;Qaz5HEObDzPUJ79OokquDdotDYD8Q="
+  href="/assets/css/stylesheet.e6c1aec4b65029005548b7c279e1ddb34b8a452fbec88ebbb669c006c8b2d0f6.css"
+  integrity="sha256-5sGuxLZQKQBVSLfCeeHds0uKRS&#43;&#43;yI67tmnABsiy0PY="
   crossorigin="anonymous"
 />
 
@@ -61,6 +61,12 @@
 
 
 
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+  crossorigin="anonymous"
+></script>
 
 
 </head>
@@ -225,75 +231,358 @@
 </article>
     </main>
     
-<footer class="footer">
-        <span>&copy; 2025 <a href="//localhost:1313/">Your Site Title</a></span> · 
+
+<button
+  class="btn btn-primary rounded-circle position-fixed d-flex align-items-center justify-content-center"
+  style="
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 1050;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  "
+  type="button"
+  data-bs-toggle="offcanvas"
+  data-bs-target="#botOffcanvas"
+  aria-controls="botOffcanvas"
+  title="Chatbot öffnen"
+>
+  🤖
+</button>
+
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="botOffcanvas"
+  aria-labelledby="botOffcanvasLabel"
+  style="width: 350px; max-width: 90vw"
+>
+  <div class="offcanvas-header border-bottom">
+    <h5 class="offcanvas-title terminal-title" id="botOffcanvasLabel">
+      <span class="text-primary">&gt;</span> Stadtforschungs-Bot
+    </h5>
+    <div class="d-flex gap-2">
+      <button
+        type="button"
+        class="btn btn-sm btn-outline-secondary"
+        id="minimizeBot"
+        title="Minimieren"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M14 8a.5.5 0 0 1-.5.5H1.5a.5.5 0 0 1 0-1H13.5A.5.5 0 0 1 14 8z"
+          />
+        </svg>
+      </button>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Schließen"
+      ></button>
+    </div>
+  </div>
+  <div class="offcanvas-body p-3" id="botFullContent">
+    
+    <div class="card border-0 h-100 shadow-sm">
+      <div
+        class="card-header bg-light border-bottom d-flex justify-content-center p-2"
+      >
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+          <button class="btn btn-danger btn-sm question-btn">Bugfixes</button>
+          <button class="btn btn-info btn-sm text-white question-btn">
+            Versionspflege
+          </button>
+          <button class="btn btn-warning btn-sm question-btn">Tests</button>
+          <button class="btn btn-secondary btn-sm question-btn">
+            Altcode reparieren
+          </button>
+        </div>
+      </div>
+
+      <div class="card-body p-0">
+        <div
+          id="bot-chat-window"
+          class="overflow-auto p-3"
+          style="
+            height: 350px;
+            background-color: var(--card-bg, #fff);
+            overflow-wrap: break-word;
+            word-break: break-word;
+            max-width: 100%;
+          "
+        >
+          
+          <div class="text-accent mb-1">
+            <div class="text-accent mb-1">
+              <span class="fw-bold">Bot:</span> Hallo! Wie kann ich dir helfen?
+              Klicke eine der obigen Optionen.
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer bg-light text-center p-2 small text-muted">
+          Powered by AI - Stadtforschung & KI
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="offcanvas-body p-3" id="botMinimized" style="display: none">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="text-muted">Bot minimiert</span>
+        <button class="btn btn-sm btn-primary" id="expandBot">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"
+            />
+          </svg>
+          Erweitern
+        </button>
+      </div>
+    </div>
+  </div>
+
+  
+  <footer class="footer">
+    <span
+      >&copy; 2025 <a href="/">Your Site Title</a></span
+    > · 
 
     <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+      Powered by
+      <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &
+      <a
+        href="https://github.com/adityatelange/hugo-PaperMod/"
+        target="_blank"
+        rel="noopener"
+        >PaperMod</a
+      >
     </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+  </footer>
+  <a
+    href="#top"
+    id="top-link"
+    class="top-link"
+    accesskey="g"
+    title="Go to Top (Alt+G)"
+    aria-label="go to top"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 12 6"
+      fill="currentColor"
+    >
+      <path d="M12 6H0l6-6z" />
     </svg>
-</a>
+  </a> 
 
-<script>
-    let menu = document.getElementById('menu')
+  <script>
+    
+    let menu = document.getElementById("menu");
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
+      menu.scrollLeft = localStorage.getItem("menu-scroll-position") || 0;
+      menu.onscroll = () =>
+        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
     }
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
+    
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", (e) => {
+        e.preventDefault();
+        let id = anchor.getAttribute("href").slice(1);
+        let target = document.getElementById(decodeURIComponent(id));
+        if (target) {
+          target.scrollIntoView({
+            behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+              .matches
+              ? "auto"
+              : "smooth",
+          });
+          history.pushState(null, null, `#${id}`);
+        }
+      });
     });
+  </script>
+  <script>
+    let topLink = document.getElementById("top-link");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 800) {
+        topLink.style.visibility = "visible";
+        topLink.style.opacity = "1";
+      } else {
+        topLink.style.visibility = "hidden";
+        topLink.style.opacity = "0";
+      }
+    });
+  </script>
+  <script>
+    document.getElementById("theme-toggle")?.addEventListener("click", () => {
+      let isDark = document.body.classList.toggle("dark");
+      localStorage.setItem("pref-theme", isDark ? "dark" : "light");
+    });
+  </script>
 
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const faq = {
+        Bugfixes: "Ich kümmere mich um Fehlerbehebungen in deinem Code.",
+        Versionspflege:
+          "Ich aktualisiere Abhängigkeiten und sorge für aktuelle Versionen.",
+        Tests:
+          "Ich schreibe und führe Unit- und Integrationstests für dich aus.",
+        "Altcode reparieren":
+          "Ich überarbeite und verbessere alten oder unleserlichen Code.",
+      };
+
+      
+      const minimizeBtn = document.getElementById("minimizeBot");
+      const expandBtn = document.getElementById("expandBot");
+      const fullContent = document.getElementById("botFullContent");
+      const minimizedContent = document.getElementById("botMinimized");
+
+      if (minimizeBtn && expandBtn && fullContent && minimizedContent) {
+        minimizeBtn.addEventListener("click", () => {
+          fullContent.classList.add("d-none");
+          minimizedContent.classList.remove("d-none");
+        });
+
+        expandBtn.addEventListener("click", () => {
+          minimizedContent.classList.add("d-none");
+          fullContent.classList.remove("d-none");
+        });
+      }
+
+      
+      const botOffcanvas = document.getElementById("botOffcanvas");
+      if (botOffcanvas) {
+        botOffcanvas.addEventListener("shown.bs.offcanvas", function () {
+          initChatBot();
+          
+          if (fullContent && minimizedContent) {
+            minimizedContent.classList.add("d-none");
+            fullContent.classList.remove("d-none");
+          }
+        });
+      }
+
+      function initChatBot() {
+        const chatWin = document.getElementById("bot-chat-window");
+
+        
+        if (!chatWin) {
+          console.error("Chat-Fenster nicht gefunden!");
+          return;
         }
-    };
 
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
+        
+        document
+          .querySelectorAll("#botOffcanvas .question-btn")
+          .forEach((btn) => {
+            btn.replaceWith(btn.cloneNode(true));
+          });
+
+        
+        document
+          .querySelectorAll("#botOffcanvas .question-btn")
+          .forEach((btn) => {
+            btn.addEventListener("click", () => {
+              let q = btn.textContent.trim();
+              appendMsg("user", q);
+              setTimeout(
+                () =>
+                  appendMsg("bot", faq[q] || "Dazu habe ich keine Antwort."),
+                300
+              );
+            });
+          });
+
+        function appendMsg(who, text) {
+          console.log("Nachricht hinzufügen:", who, text); 
+          let d = document.createElement("div");
+          d.className = who === "bot" ? "text-accent mb-1" : "mb-1";
+
+          
+          d.style.overflowWrap = "break-word";
+          d.style.wordBreak = "break-word";
+          d.style.maxWidth = "100%";
+
+          
+          if (who === "bot") {
+            d.innerHTML = '<span class="fw-bold">Bot:</span> ' + text;
+          } else {
+            d.innerHTML =
+              '<span class="text-primary fw-bold">Du:</span> ' + text;
+          }
+
+          chatWin.appendChild(d); 
+          chatWin.scrollTop = chatWin.scrollHeight;
         }
-    })
+      }
 
-</script>
+      
+      initChatBot();
+    });
+  </script>
+  <script>
+    
+    document.addEventListener("DOMContentLoaded", function () {
+      
+      const minimizeBtn = document.getElementById("minimizeBot");
+      const expandBtn = document.getElementById("expandBot");
+
+      
+      const fullContent = document.getElementById("botFullContent");
+      const minimizedContent = document.getElementById("botMinimized");
+
+      
+      console.log("Bot-Elemente:", {
+        minimizeBtn: !!minimizeBtn,
+        expandBtn: !!expandBtn,
+        fullContent: !!fullContent,
+        minimizedContent: !!minimizedContent,
+      });
+
+      
+      if (minimizeBtn) {
+        minimizeBtn.onclick = function (e) {
+          e.stopPropagation(); 
+          console.log("Minimieren geklickt");
+
+          
+          fullContent.style.display = "none";
+          minimizedContent.style.display = "block";
+        };
+      }
+
+      
+      if (expandBtn) {
+        expandBtn.onclick = function (e) {
+          e.stopPropagation(); 
+          console.log("Erweitern geklickt");
+
+          
+          minimizedContent.style.display = "none";
+          fullContent.style.display = "block";
+        };
+      }
+    });
+  </script>
+</div>
 </body>
 
 </html>

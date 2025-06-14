@@ -252,3 +252,34 @@ body.light .nav-link:hover {
   margin-top: 1rem;
   color: var(--card-text);
 }
+
+/* Hervorhebung der Schnell-Buttons */
+.question-btn {
+  transition: transform 0.1s, box-shadow 0.2s;
+}
+.question-btn:hover,
+.question-btn:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  color: #fff;
+}
+/* Extra: Dropup-Toggle-Icon */
+#bot-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1050;
+}
+#bot-chat-window {
+  white-space: normal; /* Zeilenumbrüche im HTML werden ignoriert */
+  overflow-wrap: break-word;
+  word-break: break-word;
+  overflow-x: hidden;
+}
+
+#bot-chat-window > div {
+  /* Falls du jedem einzelnen Message-Container noch trennen möchtest: */
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
