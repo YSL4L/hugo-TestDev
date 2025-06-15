@@ -1,6 +1,6 @@
 ---
-title: "Fallbeispiel – Eigene Forschung"
-description: "Fallbeispiel: Internationale Student*Innen in Rom"
+title: "Praktische Stadtforschung: Beteiligung in Rom"
+description: "Kulturanthropologische Stadtforschung hat viele Gesichter. Damit du eine Vorstellung bekommst, wie Stadtforschung wirklich in der Praxis aussehen kann, findest du auf dieser Seite ein konkretes Beispiel einer Forschung zur Beteiligung internationaler Student*Innen in Rom, die ich für meine Bachelorarbeit durchgeführt habe."
 keywords:
   - Beteiligung
   - WhatsApp

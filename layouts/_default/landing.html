@@ -40,21 +40,30 @@
 
   <!-- 3) Typewriter-Script mit verbesserter Textformatierung -->
   <script>
-    const titleText = "Stadtforschung in der Kulturnanthropologie";
-    const subtitleText =
-      "Willkommen auf deiner Reise durch die Welt der Stadtforschung im Kontext der Kulturanthropologie und Europäischen Ethnologie! Die Website Stadtforschung gibt dir einen Überblick über Konzepte, Methoden, ein konkretes Fallbeispiel und aktuelle Publikationen. Teste zum Abschluss dein Wissen über die Stadtforschung mit meinem interaktiven Quiz. Viel Spaß!";
+    const titleText = "Stadtforschung in der Kulturanthropologie";
+    // Text mit <br> Tags für Zeilenumbrüche
+    const subtitleTextWithBreaks =
+      "Willkommen auf deiner Reise durch die Welt der Stadtforschung" +
+      "<br>im Kontext der Kulturanthropologie und Europäischen Ethnologie!" +
+      "<br>Die Website Stadtforschung gibt dir einen Überblick über Konzepte," +
+      "<br>Methoden, ein konkretes Fallbeispiel und aktuelle Publikationen." +
+      "<br>Teste zum Abschluss dein Wissen über die Stadtforschung mit" +
+      "<br>meinem interaktiven Quiz. Viel Spaß!";
+
+    // Die flache Textversion zum Animieren
+    const subtitleText = subtitleTextWithBreaks.replace(/<br>/g, " ");
 
     const typedTitle = document.getElementById("typed-title");
     const cursorTitle = document.getElementById("cursor-title");
     const typedSubtext = document.getElementById("typed-subtext");
     const cursorSubtext = document.getElementById("cursor-subtext");
 
-    // Setze maximale Breite für den Subtext-Container
+    // Styling für bessere Lesbarkeit
     const subtextContainer = document.querySelector(".terminal-subtext");
     subtextContainer.style.maxWidth = "800px";
     subtextContainer.style.margin = "0 auto";
     subtextContainer.style.whiteSpace = "normal";
-    subtextContainer.style.lineHeight = "1.5";
+    subtextContainer.style.lineHeight = "1.8"; // Erhöhter Zeilenabstand
 
     let i = 0,
       j = 0;
@@ -70,8 +79,35 @@
     }
 
     function typeSubtext() {
-      if (j < subtitleText.length) {
-        typedSubtext.textContent += subtitleText.charAt(j++);
+      // Problem: Der j-Zähler basiert auf dem reinen Text,
+      // aber wir schneiden den Text mit HTML-Tags ab
+
+      if (j <= subtitleText.length) {
+        // Berechne die korrekte Position im HTML-Text
+        let htmlPos = 0;
+        let plainTextCount = 0;
+
+        // Durchlaufe den Text mit HTML-Tags
+        while (plainTextCount < j && htmlPos < subtitleTextWithBreaks.length) {
+          // Wenn aktuelles Zeichen ein < ist, überspringe den gesamten Tag
+          if (subtitleTextWithBreaks.charAt(htmlPos) === "<") {
+            while (
+              htmlPos < subtitleTextWithBreaks.length &&
+              subtitleTextWithBreaks.charAt(htmlPos) !== ">"
+            ) {
+              htmlPos++;
+            }
+            htmlPos++; // Überspringe auch das >
+          } else {
+            // Normales Zeichen
+            plainTextCount++;
+            htmlPos++;
+          }
+        }
+
+        // Zeige den HTML-Text bis zur berechneten Position
+        typedSubtext.innerHTML = subtitleTextWithBreaks.substring(0, htmlPos);
+        j++;
         setTimeout(typeSubtext, 40);
       }
     }

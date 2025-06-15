@@ -1,6 +1,6 @@
 ---
-title: "Interaktives Quiz"
-description: "Teste dein Wissen zur kulturanthropologischen Stadtforschung"
+title: "Teste dein Wissen"
+description: "Bist du schon Experte*In in der Stadtforschung? Oder möchtest du einfach mal abfragen, was du bis jetzt weißt? Dann trau dich und versuche dich an meinem interaktiven Quiz zum Thema Stadtforschung!"
 ---
 
 {{< rawhtml >}}

@@ -256,33 +256,9 @@
       <div class="col">
         <div class="soft-card h-100">
           <div class="p-4">
-            <h3 class="h5 fw-bold mb-3">Fallbeispiel – Eigene Forschung</h3>
-            <p>Fallbeispiel: Internationale Student*Innen in Rom</p>
+            <h3 class="h5 fw-bold mb-3">Praktische Stadtforschung: Beteiligung in Rom</h3>
+            <p>Kulturanthropologische Stadtforschung hat viele Gesichter. Damit du eine Vorstellung bekommst, wie Stadtforschung wirklich in der Praxis aussehen kann, findest du auf dieser Seite ein konkretes Beispiel einer Forschung zur Beteiligung internationaler Student*Innen in Rom, die ich für meine Bachelorarbeit durchgeführt habe.</p>
             <a href="/pages/fallbeispiel/" class="btn btn-outline-primary mt-3">
-              Mehr erfahren
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col">
-        <div class="soft-card h-100">
-          <div class="p-4">
-            <h3 class="h5 fw-bold mb-3">Interaktives Quiz</h3>
-            <p>Teste dein Wissen zur kulturanthropologischen Stadtforschung</p>
-            <a href="/pages/quiz/" class="btn btn-outline-primary mt-3">
-              Mehr erfahren
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col">
-        <div class="soft-card h-100">
-          <div class="p-4">
-            <h3 class="h5 fw-bold mb-3">Methoden – Stadtforschung</h3>
-            <p>Übersicht von Methoden der Stadtforschung in der Kulturanthropologie.</p>
-            <a href="/pages/methoden/" class="btn btn-outline-primary mt-3">
               Mehr erfahren
             </a>
           </div>
@@ -313,15 +289,48 @@
         </div>
       </div>
       
+      <div class="col">
+        <div class="soft-card h-100">
+          <div class="p-4">
+            <h3 class="h5 fw-bold mb-3">Teste dein Wissen</h3>
+            <p>Bist du schon Experte*In in der Stadtforschung? Oder möchtest du einfach mal abfragen, was du bis jetzt weißt? Dann trau dich und versuche dich an meinem interaktiven Quiz zum Thema Stadtforschung!</p>
+            <a href="/pages/quiz/" class="btn btn-outline-primary mt-3">
+              Mehr erfahren
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col">
+        <div class="soft-card h-100">
+          <div class="p-4">
+            <h3 class="h5 fw-bold mb-3">Theoretische Konzepte und Methoden</h3>
+            <p>Du hast schon ein Verständnis für die Stadtforschung und fragst dich, welche Methoden hier zur Anwendung kommen? Oder startest komplett bei null? Dann bist du hier genau richtig! In dieser Sektion erfährst du alles wichtige zu Methoden in der kulturanthropologischen Stadtforschung. Egal ob teilnehmende Beobachtung, Go-Along oder die dichte Beschreibung: In dieser Sektion erfährst du alles, was du zu den Methoden der Stadtforschung wissen musst.</p>
+            <a href="/pages/methoden/" class="btn btn-outline-primary mt-3">
+              Mehr erfahren
+            </a>
+          </div>
+        </div>
+      </div>
+      
     </div>
      
   </section>
 
   
   <script>
-    const titleText = "Stadtforschung in der Kulturnanthropologie";
-    const subtitleText =
-      "Willkommen auf deiner Reise durch die Welt der Stadtforschung im Kontext der Kulturanthropologie und Europäischen Ethnologie! Die Website Stadtforschung gibt dir einen Überblick über Konzepte, Methoden, ein konkretes Fallbeispiel und aktuelle Publikationen. Teste zum Abschluss dein Wissen über die Stadtforschung mit meinem interaktiven Quiz. Viel Spaß!";
+    const titleText = "Stadtforschung in der Kulturanthropologie";
+    
+    const subtitleTextWithBreaks =
+      "Willkommen auf deiner Reise durch die Welt der Stadtforschung" +
+      "<br>im Kontext der Kulturanthropologie und Europäischen Ethnologie!" +
+      "<br>Die Website Stadtforschung gibt dir einen Überblick über Konzepte," +
+      "<br>Methoden, ein konkretes Fallbeispiel und aktuelle Publikationen." +
+      "<br>Teste zum Abschluss dein Wissen über die Stadtforschung mit" +
+      "<br>meinem interaktiven Quiz. Viel Spaß!";
+
+    
+    const subtitleText = subtitleTextWithBreaks.replace(/<br>/g, " ");
 
     const typedTitle = document.getElementById("typed-title");
     const cursorTitle = document.getElementById("cursor-title");
@@ -333,7 +342,7 @@
     subtextContainer.style.maxWidth = "800px";
     subtextContainer.style.margin = "0 auto";
     subtextContainer.style.whiteSpace = "normal";
-    subtextContainer.style.lineHeight = "1.5";
+    subtextContainer.style.lineHeight = "1.8"; 
 
     let i = 0,
       j = 0;
@@ -349,8 +358,35 @@
     }
 
     function typeSubtext() {
-      if (j < subtitleText.length) {
-        typedSubtext.textContent += subtitleText.charAt(j++);
+      
+      
+
+      if (j <= subtitleText.length) {
+        
+        let htmlPos = 0;
+        let plainTextCount = 0;
+
+        
+        while (plainTextCount < j && htmlPos < subtitleTextWithBreaks.length) {
+          
+          if (subtitleTextWithBreaks.charAt(htmlPos) === "<") {
+            while (
+              htmlPos < subtitleTextWithBreaks.length &&
+              subtitleTextWithBreaks.charAt(htmlPos) !== ">"
+            ) {
+              htmlPos++;
+            }
+            htmlPos++; 
+          } else {
+            
+            plainTextCount++;
+            htmlPos++;
+          }
+        }
+
+        
+        typedSubtext.innerHTML = subtitleTextWithBreaks.substring(0, htmlPos);
+        j++;
         setTimeout(typeSubtext, 40);
       }
     }

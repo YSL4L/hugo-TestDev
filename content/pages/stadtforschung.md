@@ -10,8 +10,6 @@ keywords:
 draft: false
 ---
 
-<div id="navbar-placeholder"></div>
-
 # Was ist Stadtforschung?
 
 Die Stadtforschung in der Kulturanthropologie und Europäischen Ethnologie ist ein vielfältiges Feld, das sich besonders durch die Perspektive der Stadt selbst, der teilnehmenden Akteure sowie der ständigen Rekonstruktion durch Praktiken der Stadtakteure definiert. Als Geburtsstätten der Stadtforschung sind nach Carolin Genz besonders Straßenecken, Cafés und Nachbarschaftsquartiere innerhalb von Chicago im Zeitraum der 1920er Jahre zu nennen (Vgl. Genz, Caroline 2020: S. 13).

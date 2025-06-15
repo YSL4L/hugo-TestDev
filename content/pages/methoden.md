@@ -1,6 +1,6 @@
 ---
-title: "Methoden – Stadtforschung"
-description: "Übersicht von Methoden der Stadtforschung in der Kulturanthropologie."
+title: "Theoretische Konzepte und Methoden"
+description: "Du hast schon ein Verständnis für die Stadtforschung und fragst dich, welche Methoden hier zur Anwendung kommen? Oder startest komplett bei null? Dann bist du hier genau richtig! In dieser Sektion erfährst du alles wichtige zu Methoden in der kulturanthropologischen Stadtforschung. Egal ob teilnehmende Beobachtung, Go-Along oder die dichte Beschreibung: In dieser Sektion erfährst du alles, was du zu den Methoden der Stadtforschung wissen musst."
 keywords:
   - Kulturanthropologie
   - Stadtforschung
