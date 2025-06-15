@@ -9,11 +9,18 @@
     <lastBuildDate>Tue, 03 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>KI und Stadtforschung</title>
-      <link>//localhost:1313/posts/first-test-post/</link>
-      <pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/first-test-post/</guid>
-      <description>&lt;p&gt;Willkommen zu meinem Beitrag über KI und Stadtforschung.&lt;/p&gt;</description>
+      <title>Stadtforschung in der Kulturanthropologie – Was ist das?</title>
+      <link>//localhost:1313/pages/stadtforschung/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/pages/stadtforschung/</guid>
+      <description>Ausführliche Informationen zur Stadtforschung in der Kulturanthropologie.</description>
+    </item>
+    <item>
+      <title>Theoretische Konzepte und Methoden</title>
+      <link>//localhost:1313/pages/methoden/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/pages/methoden/</guid>
+      <description>Du hast schon ein Verständnis für die Stadtforschung und fragst dich, welche Methoden hier zur Anwendung kommen? Oder startest komplett bei null? Dann bist du hier genau richtig! In dieser Sektion erfährst du alles wichtige zu Methoden in der kulturanthropologischen Stadtforschung. Egal ob teilnehmende Beobachtung, Go-Along oder die dichte Beschreibung: In dieser Sektion erfährst du alles, was du zu den Methoden der Stadtforschung wissen musst.</description>
     </item>
     <item>
       <title>Praktische Stadtforschung: Beteiligung in Rom</title>
@@ -30,13 +37,6 @@
       <description>Projektbeschreibung meiner Website zum Thema kulturanthropologische Stadtforschung</description>
     </item>
     <item>
-      <title>Stadtforschung in der Kulturanthropologie – Was ist das?</title>
-      <link>//localhost:1313/pages/stadtforschung/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/pages/stadtforschung/</guid>
-      <description>Ausführliche Informationen zur Stadtforschung in der Kulturanthropologie.</description>
-    </item>
-    <item>
       <title>Teste dein Wissen</title>
       <link>//localhost:1313/pages/quiz/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -44,11 +44,11 @@
       <description>Bist du schon Experte*In in der Stadtforschung? Oder möchtest du einfach mal abfragen, was du bis jetzt weißt? Dann trau dich und versuche dich an meinem interaktiven Quiz zum Thema Stadtforschung!</description>
     </item>
     <item>
-      <title>Theoretische Konzepte und Methoden</title>
-      <link>//localhost:1313/pages/methoden/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/pages/methoden/</guid>
-      <description>Du hast schon ein Verständnis für die Stadtforschung und fragst dich, welche Methoden hier zur Anwendung kommen? Oder startest komplett bei null? Dann bist du hier genau richtig! In dieser Sektion erfährst du alles wichtige zu Methoden in der kulturanthropologischen Stadtforschung. Egal ob teilnehmende Beobachtung, Go-Along oder die dichte Beschreibung: In dieser Sektion erfährst du alles, was du zu den Methoden der Stadtforschung wissen musst.</description>
+      <title>KI und Stadtforschung</title>
+      <link>//localhost:1313/posts/first-test-post/</link>
+      <pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/first-test-post/</guid>
+      <description>&lt;p&gt;Willkommen zu meinem Beitrag über KI und Stadtforschung.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

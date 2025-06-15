@@ -44,21 +44,6 @@ else if and (ne site.Params.defaultTheme "light") (ne site.Params.defaultTheme
         accesskey="h"
         title="{{ $label_text }} (Alt + H)"
       >
-        {{- if site.Params.label.icon }} {{- $img := resources.Get
-        site.Params.label.icon }} {{- if $img }} {{- $processableFormats :=
-        slice "jpg" "jpeg" "png" "tif" "bmp" "gif" -}} {{- if hugo.IsExtended
-        -}} {{- $processableFormats = $processableFormats | append "webp" -}}
-        {{- end -}} {{- $prod := or hugo.IsProduction (eq site.Params.env
-        "production") -}} {{- if and (in $processableFormats
-        $img.MediaType.SubType) $prod -}} {{- if site.Params.label.iconHeight }}
-        {{- $img = $img.Resize (printf "x%d" site.Params.label.iconHeight) }}
-        {{- else }} {{- $img = $img.Resize "x30" }} {{- end }} {{- end }} <img
-        src="{{ $img.Permalink }}" alt="" aria-label="logo" height="{{-
-        site.Params.label.iconHeight | default "30" -}}"> {{- else }} <img
-        src="{{ site.Params.label.icon | absURL }}" alt="" aria-label="logo"
-        height="{{- site.Params.label.iconHeight | default "30" -}}"> {{- end }}
-        {{- else if hasPrefix site.Params.label.iconSVG "<svg" }} {{
-        site.Params.label.iconSVG | safeHTML }} {{- end }}
         <span class="text-primary">&gt;</span>
         <span class="fw-bold">{{ $label_text }}</span
         ><span class="terminal-cursor">_</span>
@@ -163,23 +148,61 @@ else if and (ne site.Params.defaultTheme "light") (ne site.Params.defaultTheme
       </div>
     </nav>
   </div>
-</header>
+  <!-- Theme toggle script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+      const header = document.querySelector(".tech-navbar");
+      const toggleButton = document.getElementById("toggle-header");
+      let lastScrollTop = 0;
+      const scrollThreshold = 100;
+      let headerVisible = true;
 
-<!-- Theme toggle script -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const themeToggle = document.getElementById("theme-toggle");
-    const body = document.body;
+      // Theme Toggle Funktionalität
+      const currentTheme = localStorage.getItem("theme") || "dark";
+      body.classList.toggle("light", currentTheme === "light");
 
-    // Check for saved theme preference or use default
-    const currentTheme = localStorage.getItem("theme") || "dark";
-    body.classList.toggle("light", currentTheme === "light");
+      themeToggle.addEventListener("click", function () {
+        body.classList.toggle("light");
+        const theme = body.classList.contains("light") ? "light" : "dark";
+        localStorage.setItem("theme", theme);
+      });
 
-    // Toggle theme on button click
-    themeToggle.addEventListener("click", function () {
-      body.classList.toggle("light");
-      const theme = body.classList.contains("light") ? "light" : "dark";
-      localStorage.setItem("theme", theme);
+      // Header Toggle Funktionalität
+      function toggleHeader() {
+        headerVisible = !headerVisible;
+        header.style.transform = headerVisible
+          ? "translateY(0)"
+          : "translateY(-100%)";
+        // Ändere das Icon je nach Zustand
+        toggleButton.innerHTML = headerVisible
+          ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>'
+          : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+      }
+
+      // Button-Event für manuelles Umschalten
+      if (toggleButton) {
+        toggleButton.addEventListener("click", toggleHeader);
+      }
+
+      // Scroll-Event für automatisches Ein-/Ausblenden
+      window.addEventListener("scroll", function () {
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+          // Runterscrollen
+          headerVisible = false;
+          header.style.transform = "translateY(-100%)";
+        } else {
+          // Hochscrollen oder am Seitenanfang
+          headerVisible = true;
+          header.style.transform = "translateY(0)";
+        }
+
+        lastScrollTop = scrollTop;
+      });
     });
-  });
-</script>
+  </script>
+</header>

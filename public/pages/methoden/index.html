@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en"
+      dir="auto">
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -29,8 +30,8 @@
 <link
   rel="preload stylesheet"
   as="style"
-  href="/assets/css/stylesheet.52e26f18f8519a53b9773d64ef148d325a2805c8016a23b38ff464949e20cdae.css"
-  integrity="sha256-UuJvGPhRmlO5dz1k7xSNMlooBcgBaiOzj/RklJ4gza4="
+  href="/assets/css/stylesheet.09465d919358b2b1062505493baf8b6fa3d0b5c28a839909c46ac6487cab73f2.css"
+  integrity="sha256-CUZdkZNYsrEGJQVJO6&#43;Lb6PQtcKKg5kJxGrGSHyrc/I="
   crossorigin="anonymous"
 />
 
@@ -62,10 +63,11 @@
   crossorigin="anonymous"
 ></script>
 
-
+<link rel="stylesheet" href="/css/image-zoom.css">
 </head>
 
-<body class="" id="top">
+<body id="top"
+      class="">
 <script>
   if (localStorage.getItem("pref-theme") === "dark") {
     document.body.classList.add("dark");
@@ -208,26 +210,64 @@
       </div>
     </nav>
   </div>
-</header>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+      const header = document.querySelector(".tech-navbar");
+      const toggleButton = document.getElementById("toggle-header");
+      let lastScrollTop = 0;
+      const scrollThreshold = 100;
+      let headerVisible = true;
 
+      
+      const currentTheme = localStorage.getItem("theme") || "dark";
+      body.classList.toggle("light", currentTheme === "light");
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const themeToggle = document.getElementById("theme-toggle");
-    const body = document.body;
+      themeToggle.addEventListener("click", function () {
+        body.classList.toggle("light");
+        const theme = body.classList.contains("light") ? "light" : "dark";
+        localStorage.setItem("theme", theme);
+      });
 
-    
-    const currentTheme = localStorage.getItem("theme") || "dark";
-    body.classList.toggle("light", currentTheme === "light");
+      
+      function toggleHeader() {
+        headerVisible = !headerVisible;
+        header.style.transform = headerVisible
+          ? "translateY(0)"
+          : "translateY(-100%)";
+        
+        toggleButton.innerHTML = headerVisible
+          ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>'
+          : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+      }
 
-    
-    themeToggle.addEventListener("click", function () {
-      body.classList.toggle("light");
-      const theme = body.classList.contains("light") ? "light" : "dark";
-      localStorage.setItem("theme", theme);
+      
+      if (toggleButton) {
+        toggleButton.addEventListener("click", toggleHeader);
+      }
+
+      
+      window.addEventListener("scroll", function () {
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+          
+          headerVisible = false;
+          header.style.transform = "translateY(-100%)";
+        } else {
+          
+          headerVisible = true;
+          header.style.transform = "translateY(0)";
+        }
+
+        lastScrollTop = scrollTop;
+      });
     });
-  });
-</script>
+  </script>
+</header>
 <main class="main">
 
 <article class="post-single">
@@ -291,9 +331,7 @@
     <ul class="post-tags">
     </ul>
   </footer>
-</article>
-    </main>
-    
+</article></main>
 
 <button
   class="btn btn-primary rounded-circle position-fixed d-flex align-items-center justify-content-center"
@@ -568,6 +606,8 @@
     });
   });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+          crossorigin="anonymous" defer></script>
 </body>
-
 </html>

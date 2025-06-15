@@ -9,6 +9,7 @@ keywords:
   - Stadtforschung
   - Kulturanthropologie
   - Rom
+weight: 3
 ---
 
 # Fallbeispiel: Internationale Student\*Innen in Rom

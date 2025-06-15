@@ -8,6 +8,7 @@ keywords:
   - "Stadtperspektive"
   - "Historie"
 draft: false
+weight: 1
 ---
 
 # Was ist Stadtforschung?

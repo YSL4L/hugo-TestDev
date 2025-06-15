@@ -283,3 +283,165 @@ body.light .nav-link:hover {
   word-wrap: break-word;
   word-break: break-word;
 }
+.image-zoom-container {
+  position: relative;
+  display: inline-block;
+  cursor: zoom-in;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.zoom-preview {
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.image-zoom-container:hover .zoom-preview {
+  transform: scale(1.03);
+}
+
+.zoom-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: opacity 0.3s ease;
+}
+
+.image-zoom-container:hover .zoom-overlay {
+  opacity: 1;
+}
+.navbar-toggler {
+  color: var(--primary-color) !important;
+  background-color: transparent !important;
+  border: 1px solid var(--primary-color) !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 123, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+.tech-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+  background-color: var(--theme);
+}
+/* Quiz Styling */
+#quiz-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#answers .list-group-item {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+#answers .list-group-item:hover {
+  transform: translateX(5px);
+  border-left-color: var(--accent-color);
+  background-color: rgba(0, 255, 224, 0.05);
+}
+
+#answers .list-group-item.active {
+  background-color: rgba(0, 255, 224, 0.1);
+  border-left-color: var(--accent-color);
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+#answers .list-group-item-success {
+  background-color: rgba(40, 167, 69, 0.15);
+  color: #28a745;
+  border-left-color: #28a745;
+}
+
+#answers .list-group-item-danger {
+  background-color: rgba(220, 53, 69, 0.15);
+  color: #dc3545;
+  border-left-color: #dc3545;
+}
+
+/* Quiz Buttons */
+#submit-btn,
+#next-btn,
+#restart-btn {
+  transition: all 0.2s ease;
+}
+
+#submit-btn:hover,
+#next-btn:hover,
+#restart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Feedback Element */
+#feedback .alert {
+  border-radius: 0.5rem;
+  border-left: 4px solid;
+  animation: slideIn 0.3s ease forwards;
+}
+
+#feedback .alert-success {
+  background-color: rgba(40, 167, 69, 0.1);
+  border-left-color: #28a745;
+}
+
+#feedback .alert-danger {
+  background-color: rgba(220, 53, 69, 0.1);
+  border-left-color: #dc3545;
+}
+
+#feedback .alert-primary {
+  background-color: rgba(0, 123, 255, 0.1);
+  border-left-color: #007bff;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Results Styling */
+.alert-primary strong {
+  color: var(--accent-color);
+}
+
+/* Dark Mode Adjustments */
+body.dark #answers .list-group-item {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark #answers .list-group-item:hover,
+body.dark #answers .list-group-item.active {
+  background-color: rgba(0, 255, 224, 0.1);
+}
+
+body.dark #answers .list-group-item-success {
+  background-color: rgba(40, 167, 69, 0.2);
+}
+
+body.dark #answers .list-group-item-danger {
+  background-color: rgba(220, 53, 69, 0.2);
+}

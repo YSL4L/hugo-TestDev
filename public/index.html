@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en"
+      dir="auto">
 
 <head>
 	<meta name="generator" content="Hugo 0.147.7"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8" />
@@ -26,8 +27,8 @@
 <link
   rel="preload stylesheet"
   as="style"
-  href="/assets/css/stylesheet.52e26f18f8519a53b9773d64ef148d325a2805c8016a23b38ff464949e20cdae.css"
-  integrity="sha256-UuJvGPhRmlO5dz1k7xSNMlooBcgBaiOzj/RklJ4gza4="
+  href="/assets/css/stylesheet.09465d919358b2b1062505493baf8b6fa3d0b5c28a839909c46ac6487cab73f2.css"
+  integrity="sha256-CUZdkZNYsrEGJQVJO6&#43;Lb6PQtcKKg5kJxGrGSHyrc/I="
   crossorigin="anonymous"
 />
 
@@ -65,10 +66,11 @@
   crossorigin="anonymous"
 ></script>
 
-
+<link rel="stylesheet" href="/css/image-zoom.css">
 </head>
 
-<body class="list" id="top">
+<body id="top"
+      class="list">
 <script>
   if (localStorage.getItem("pref-theme") === "dark") {
     document.body.classList.add("dark");
@@ -211,26 +213,64 @@
       </div>
     </nav>
   </div>
-</header>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+      const header = document.querySelector(".tech-navbar");
+      const toggleButton = document.getElementById("toggle-header");
+      let lastScrollTop = 0;
+      const scrollThreshold = 100;
+      let headerVisible = true;
 
+      
+      const currentTheme = localStorage.getItem("theme") || "dark";
+      body.classList.toggle("light", currentTheme === "light");
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const themeToggle = document.getElementById("theme-toggle");
-    const body = document.body;
+      themeToggle.addEventListener("click", function () {
+        body.classList.toggle("light");
+        const theme = body.classList.contains("light") ? "light" : "dark";
+        localStorage.setItem("theme", theme);
+      });
 
-    
-    const currentTheme = localStorage.getItem("theme") || "dark";
-    body.classList.toggle("light", currentTheme === "light");
+      
+      function toggleHeader() {
+        headerVisible = !headerVisible;
+        header.style.transform = headerVisible
+          ? "translateY(0)"
+          : "translateY(-100%)";
+        
+        toggleButton.innerHTML = headerVisible
+          ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>'
+          : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+      }
 
-    
-    themeToggle.addEventListener("click", function () {
-      body.classList.toggle("light");
-      const theme = body.classList.contains("light") ? "light" : "dark";
-      localStorage.setItem("theme", theme);
+      
+      if (toggleButton) {
+        toggleButton.addEventListener("click", toggleHeader);
+      }
+
+      
+      window.addEventListener("scroll", function () {
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+          
+          headerVisible = false;
+          header.style.transform = "translateY(-100%)";
+        } else {
+          
+          headerVisible = true;
+          header.style.transform = "translateY(0)";
+        }
+
+        lastScrollTop = scrollTop;
+      });
     });
-  });
-</script>
+  </script>
+</header>
 <main class="main">
 <main class="container py-5">
   
@@ -252,6 +292,30 @@
        
     
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      
+      <div class="col">
+        <div class="soft-card h-100">
+          <div class="p-4">
+            <h3 class="h5 fw-bold mb-3">Stadtforschung in der Kulturanthropologie – Was ist das?</h3>
+            <p>Ausführliche Informationen zur Stadtforschung in der Kulturanthropologie.</p>
+            <a href="/pages/stadtforschung/" class="btn btn-outline-primary mt-3">
+              Mehr erfahren
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col">
+        <div class="soft-card h-100">
+          <div class="p-4">
+            <h3 class="h5 fw-bold mb-3">Theoretische Konzepte und Methoden</h3>
+            <p>Du hast schon ein Verständnis für die Stadtforschung und fragst dich, welche Methoden hier zur Anwendung kommen? Oder startest komplett bei null? Dann bist du hier genau richtig! In dieser Sektion erfährst du alles wichtige zu Methoden in der kulturanthropologischen Stadtforschung. Egal ob teilnehmende Beobachtung, Go-Along oder die dichte Beschreibung: In dieser Sektion erfährst du alles, was du zu den Methoden der Stadtforschung wissen musst.</p>
+            <a href="/pages/methoden/" class="btn btn-outline-primary mt-3">
+              Mehr erfahren
+            </a>
+          </div>
+        </div>
+      </div>
       
       <div class="col">
         <div class="soft-card h-100">
@@ -280,33 +344,9 @@
       <div class="col">
         <div class="soft-card h-100">
           <div class="p-4">
-            <h3 class="h5 fw-bold mb-3">Stadtforschung in der Kulturanthropologie – Was ist das?</h3>
-            <p>Ausführliche Informationen zur Stadtforschung in der Kulturanthropologie.</p>
-            <a href="/pages/stadtforschung/" class="btn btn-outline-primary mt-3">
-              Mehr erfahren
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col">
-        <div class="soft-card h-100">
-          <div class="p-4">
             <h3 class="h5 fw-bold mb-3">Teste dein Wissen</h3>
             <p>Bist du schon Experte*In in der Stadtforschung? Oder möchtest du einfach mal abfragen, was du bis jetzt weißt? Dann trau dich und versuche dich an meinem interaktiven Quiz zum Thema Stadtforschung!</p>
             <a href="/pages/quiz/" class="btn btn-outline-primary mt-3">
-              Mehr erfahren
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col">
-        <div class="soft-card h-100">
-          <div class="p-4">
-            <h3 class="h5 fw-bold mb-3">Theoretische Konzepte und Methoden</h3>
-            <p>Du hast schon ein Verständnis für die Stadtforschung und fragst dich, welche Methoden hier zur Anwendung kommen? Oder startest komplett bei null? Dann bist du hier genau richtig! In dieser Sektion erfährst du alles wichtige zu Methoden in der kulturanthropologischen Stadtforschung. Egal ob teilnehmende Beobachtung, Go-Along oder die dichte Beschreibung: In dieser Sektion erfährst du alles, was du zu den Methoden der Stadtforschung wissen musst.</p>
-            <a href="/pages/methoden/" class="btn btn-outline-primary mt-3">
               Mehr erfahren
             </a>
           </div>
@@ -394,9 +434,7 @@
     document.addEventListener("DOMContentLoaded", typeTitle);
   </script>
 </main>
-
-    </main>
-    
+</main>
 
 <button
   class="btn btn-primary rounded-circle position-fixed d-flex align-items-center justify-content-center"
@@ -671,6 +709,8 @@
     });
   });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+          crossorigin="anonymous" defer></script>
 </body>
-
 </html>

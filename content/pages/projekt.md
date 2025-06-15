@@ -5,6 +5,7 @@ keywords:
   - Stadtforschung
   - Kulturanthropologie
 layout: "page"
+weight: 4
 ---
 
 ## Projekt
