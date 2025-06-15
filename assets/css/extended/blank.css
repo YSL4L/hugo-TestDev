@@ -1,43 +1,43 @@
-/* =========================
-   Farb- & Schriftvariablen
-   ========================= */
 :root {
-  --accent-color: #00bbe0; /* Etwas dunklere Variante für besseren Kontrast im Light Mode */
+  --accent-color: #00bbe0;
   --bg-color: #f2f3f5;
   --text-color: #212529;
   --card-bg: #ffffff;
   --card-text: #212529;
   --font-default: "JetBrains Mono", monospace;
-  --link-color: #0078a0; /* Dunkleres Blau für bessere Lesbarkeit im Light Mode */
+  --link-color: #0078a0;
   --navbar-bg: rgba(250, 250, 250, 0.95);
   --navbar-border: rgba(0, 0, 0, 0.1);
   --navbar-link: rgba(0, 0, 0, 0.7);
   --navbar-link-hover: rgba(0, 0, 0, 0.9);
   --navbar-link-hover-bg: rgba(0, 0, 0, 0.05);
 }
-
-/* Dark Mode Anpassungen */
 body.dark {
-  --accent-color: #0ff; /* Neon Cyan - sehr gut sichtbar im Dark Mode */
-  --bg-color: #121212; /* Dunklerer Hintergrund */
-  --text-color: #ffffff; /* Weißer Text für bessere Lesbarkeit */
-  --card-bg: #1e1e1e; /* Dunklerer Kartenhintergrund */
-  --card-text: #ffffff; /* Weißer Text in Karten */
-  --link-color: #00ccff; /* Leuchtenderes Blau für Links */
-  --heading-color: #0ff; /* Neon Cyan für Überschriften */
+  --accent-color: #0ff;
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --card-text: #ffffff;
+  --link-color: #00ccff;
+  --heading-color: #0ff;
   --navbar-bg: rgba(13, 17, 23, 0.95);
   --navbar-border: rgba(100, 100, 100, 0.2);
   --navbar-link: rgba(255, 255, 255, 0.8);
   --navbar-link-hover: rgba(255, 255, 255, 1);
-  --navbar-link-hover-bg: rgba(
-    0,
-    255,
-    255,
-    0.15
-  ); /* Neon Cyan Hintergrund beim Hover */
+  --navbar-link-hover-bg: rgba(0, 255, 255, 0.15);
+  --theme: #121212;
+  --entry: #121212;
+  --card: #1e1e1e;
+  --border: #30363d;
 }
-
-/* Füge diese neuen Styles hinzu, um Überschriften im Dark Mode anzupassen */
+html,
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-default);
+  font-size: 16px;
+  line-height: 1.6;
+}
 body.dark h1,
 body.dark h2,
 body.dark h3,
@@ -46,381 +46,129 @@ body.dark h5,
 body.dark h6 {
   color: var(--heading-color);
 }
-
-/* Verbessere die Sichtbarkeit von aktiven Navbar-Links im Dark Mode */
-body.dark .nav-link.active {
-  color: var(--accent-color);
-  background-color: rgba(0, 255, 255, 0.15);
+body.dark p,
+body.dark .lead,
+body.dark .text-muted {
+  color: var(--text-color) !important;
 }
-
-body.dark .nav-link.active:before {
-  background-color: var(--accent-color);
-}
-
-/* Verbessere die Sichtbarkeit von Buttons im Dark Mode */
-body.dark .btn-outline-primary {
-  color: var(--accent-color);
-  border-color: var(--accent-color);
-}
-
-body.dark .btn-outline-primary:hover {
-  background-color: var(--accent-color);
-  color: #000; /* Schwarzer Text auf hellem Hintergrund für Kontrast */
-}
-
-body.dark .btn-primary {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
-  color: #000; /* Schwarzer Text auf hellem Hintergrund für Kontrast */
-}
-
-/* Soft Card im Dark Mode verbessern */
-body.dark .soft-card {
-  border-left-color: var(--accent-color);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-body.dark .soft-card:hover {
-  box-shadow: 0 8px 16px rgba(0, 255, 255, 0.2);
-}
-
-/* Verbessere die Quiz-Komponenten im Dark Mode */
-body.dark #answers .list-group-item {
-  background-color: #2a2a2a;
-  color: #ffffff;
-  border-color: #444;
-}
-
-body.dark #answers .list-group-item:hover {
-  background-color: rgba(0, 255, 255, 0.1);
-  border-left-color: var(--accent-color);
-}
-
-body.dark #answers .list-group-item.active {
-  background-color: rgba(0, 255, 255, 0.15);
-  border-left-color: var(--accent-color);
-  color: white;
-}
-
-body.dark #answers .list-group-item-success {
-  background-color: rgba(40, 167, 69, 0.25);
-  color: #5cff8b; /* Helleres Grün im Dark Mode */
-  border-left-color: #5cff8b;
-}
-
-body.dark #answers .list-group-item-danger {
-  background-color: rgba(220, 53, 69, 0.25);
-  color: #ff6b7a; /* Helleres Rot im Dark Mode */
-  border-left-color: #ff6b7a;
-}
-
-/* Feedback-Elemente im Dark Mode verbessern */
-body.dark #feedback .alert-success {
-  background-color: rgba(40, 167, 69, 0.15);
-  color: #5cff8b;
-  border-left-color: #5cff8b;
-}
-
-body.dark #feedback .alert-danger {
-  background-color: rgba(220, 53, 69, 0.15);
-  color: #ff6b7a;
-  border-left-color: #ff6b7a;
-}
-
-body.dark #feedback .alert-primary {
-  background-color: rgba(0, 255, 255, 0.15);
-  color: #ffffff;
-  border-left-color: var(--accent-color);
-}
-
-/* =================
-     Global Styles
-     ================= */
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: var(--font-default);
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* =================
-     Hero Terminal Title
-     ================= */
-.terminal-title {
-  color: var(--accent-color);
-  font-weight: 600;
-  cursor: text;
-}
-
-#typed-text,
-#typed-title,
-#typed-subtext {
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-/* =================
-     Blinking Cursor
-     ================= */
-@keyframes blink {
-  to {
-    visibility: hidden;
-  }
-}
-
-.cursor-title {
-  display: inline-block;
-  width: 1ch;
-  color: var(--accent-color);
-  animation: blink 1s steps(2, start) infinite;
-}
-
-.cursor-subtext {
-  display: inline-block;
-  width: 1ch;
-  color: #ffffff;
-  animation: blink 1s steps(2, start) infinite;
-}
-
-/* =================
-     Soft Card Layout
-     ================= */
-.soft-card {
+.soft-card,
+.quest-softcard {
   background-color: var(--card-bg);
   color: var(--card-text);
   padding: 2rem;
   margin: 1.5rem 0;
   border-radius: 1.25rem;
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
   border-left: 3px solid var(--accent-color);
 }
-
-.soft-card:hover {
-  transform: translateY(-4px) scale(1.015);
-  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.12);
-  border-left: 4px solid var(--accent-color);
-}
-
-.soft-card h5 {
-  transition: color 0.2s ease;
-}
-
-.soft-card h5:hover {
-  color: var(--accent-color);
-}
-
-.soft-card a {
-  color: var(--accent-color);
-  text-decoration: none;
-}
-
-.soft-card a:hover {
-  text-decoration: underline;
-}
-
-/* Optionaler Boost für spezielle Softcard wie „Quest Box“ */
-.quest-softcard {
-  max-width: 420px;
-  margin: 0 auto;
-  background-color: var(--card-bg);
-  border: 2px dashed var(--accent-color);
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
+.soft-card:hover,
 .quest-softcard:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.18);
-}
-
-/* Dotted Border für Quest-Karte */
-.border-dotted {
-  border: 2px dotted var(--accent-color);
-  border-radius: 1.25rem;
-}
-
-/* Optional: Quest-Emoji größer auf mobilen Geräten */
-@media (max-width: 576px) {
-  .soft-card .mb-3 {
-    font-size: 1.75rem;
-  }
-}
-
-/* Tech-themed navbar styling */
-.tech-navbar {
-  background-color: rgba(13, 17, 23, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(100, 100, 100, 0.2);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-.terminal-text {
-  font-family: "Consolas", "Monaco", monospace;
-  letter-spacing: 0.05em;
-}
-
-.terminal-cursor {
-  animation: cursor-blink 1.2s infinite;
-  font-weight: bold;
-  color: var(--bs-primary);
-}
-
-@keyframes cursor-blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-.navbar-brand {
-  font-size: 1.35rem;
-}
-
-.nav-link {
-  position: relative;
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 500;
-  transition: all 0.3s ease;
-  padding: 0.5rem 0.75rem;
-  margin: 0 0.2rem;
-  border-radius: 4px;
-}
-
-.nav-link:hover {
-  color: rgba(255, 255, 255, 1);
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.nav-link.active {
-  color: var(--bs-primary);
-  background-color: rgba(var(--bs-primary-rgb), 0.15);
-}
-
-.nav-link.active:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 10%;
-  width: 80%;
-  height: 2px;
-  background-color: var(--bs-primary);
-  border-radius: 2px;
-}
-
-/* Ensure navbar-toggler has tech styling */
-.navbar-toggler {
-  border: 1px solid rgba(100, 100, 100, 0.2);
-  padding: 0.5rem;
-}
-
-.navbar-toggler:focus {
-  box-shadow: 0 0 0 3px rgba(var(--bs-primary-rgb), 0.25);
-}
-
-/* Dark theme adjustments */
-@media (prefers-color-scheme: dark) {
-  body:not(.light) .tech-navbar {
-    background-color: rgba(13, 17, 23, 0.95);
-  }
-}
-
-/* Light theme adjustments */
-body.light .tech-navbar {
-  background-color: rgba(250, 250, 250, 0.95);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-body.light .nav-link {
-  color: rgba(0, 0, 0, 0.7);
-}
-
-body.light .nav-link:hover {
-  color: rgba(0, 0, 0, 0.9);
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.bot-img {
-  display: block;
-  margin: 0 auto 1rem;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-/* Frage-Buttons (kein Button-Look, nur Link-Look) */
-.quest-softcard .question {
-  color: var(--accent-color);
-  text-decoration: none;
-  display: block;
-}
-.quest-softcard .question:hover {
-  text-decoration: underline;
-}
-
-/* Antwortfeld */
-#bot-answer {
-  margin-top: 1rem;
-  color: var(--card-text);
-}
-
-/* Hervorhebung der Schnell-Buttons */
-.question-btn {
-  transition: transform 0.1s, box-shadow 0.2s;
-}
-.question-btn:hover,
-.question-btn:focus {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  color: #fff;
-}
-/* Extra: Dropup-Toggle-Icon */
-#bot-toggle {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  z-index: 1050;
-}
-#bot-chat-window .text-accent {
-  white-space: normal !important;
-  overflow-wrap: break-word;
-  word-break: break-word;
-}
-
-/* Jede einzelne Nachricht im Chat auch umbrec̱hen */
-#bot-chat-window > div {
-  white-space: pre-wrap;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-}
-
-.navbar-toggler {
-  color: var(--primary-color) !important;
-  background-color: transparent !important;
-  border: 1px solid var(--primary-color) !important;
-}
-
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 123, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 8px 20px rgba(0, 255, 255, 0.12);
+  border-left-width: 4px;
 }
 .tech-navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
-  background-color: var(--theme);
+  background-color: var(--navbar-bg);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--navbar-border);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
-/* Quiz Styling */
-#quiz-form {
-  max-width: 800px;
-  margin: 0 auto;
+.nav-link {
+  position: relative;
+  color: var(--navbar-link);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0.75rem;
+  margin: 0 0.2rem;
+  border-radius: 4px;
 }
-
+.nav-link:hover {
+  color: var(--navbar-link-hover);
+  background-color: var(--navbar-link-hover-bg);
+}
+.nav-link.active,
+body.dark .nav-link.active {
+  color: var(--accent-color);
+  background-color: rgba(0, 255, 255, 0.15);
+}
+.nav-link.active::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+.navbar-toggler {
+  color: var(--accent-color) !important;
+  background-color: transparent !important;
+  border: 1px solid var(--accent-color) !important;
+}
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.25);
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 255, 224, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+body.dark .post-single,
+body.dark .post-content,
+body.dark .post-single pre,
+body.dark .post-single code,
+body.dark .post-footer,
+body.dark .post-header {
+  background-color: transparent !important;
+  color: var(--text-color) !important;
+}
+body.dark .bg-light,
+body.dark .card,
+body.dark .card-header,
+body.dark .card-footer,
+body.dark .list-group-item,
+body.dark .alert {
+  background-color: var(--card-bg) !important;
+  color: var(--card-text) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+body.dark table,
+body.dark th,
+body.dark td {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+body.dark hr {
+  border-top-color: rgba(255, 255, 255, 0.15);
+}
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+body.dark a {
+  color: var(--link-color);
+}
+.btn-outline-primary {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+.btn-outline-primary:hover {
+  background-color: var(--accent-color);
+  color: #000;
+}
+.btn-primary {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+body.dark .btn-primary {
+  color: #000;
+}
 #answers .list-group-item {
   cursor: pointer;
   transition: all 0.2s ease;
@@ -428,68 +176,92 @@ body.light .nav-link:hover {
   margin-bottom: 0.5rem;
   border-radius: 0.5rem;
 }
-
 #answers .list-group-item:hover {
   transform: translateX(5px);
   border-left-color: var(--accent-color);
   background-color: rgba(0, 255, 224, 0.05);
 }
-
 #answers .list-group-item.active {
   background-color: rgba(0, 255, 224, 0.1);
   border-left-color: var(--accent-color);
-  color: var(--text-color);
   font-weight: 500;
 }
-
 #answers .list-group-item-success {
   background-color: rgba(40, 167, 69, 0.15);
   color: #28a745;
   border-left-color: #28a745;
 }
-
 #answers .list-group-item-danger {
   background-color: rgba(220, 53, 69, 0.15);
   color: #dc3545;
   border-left-color: #dc3545;
 }
-
-/* Quiz Buttons */
-#submit-btn,
-#next-btn,
-#restart-btn {
-  transition: all 0.2s ease;
+body.dark #answers .list-group-item {
+  background-color: rgba(255, 255, 255, 0.05);
 }
-
-#submit-btn:hover,
-#next-btn:hover,
-#restart-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+body.dark #answers .list-group-item:hover,
+body.dark #answers .list-group-item.active {
+  background-color: rgba(0, 255, 224, 0.1);
 }
-
-/* Feedback Element */
+body.dark #answers .list-group-item-success {
+  background-color: rgba(40, 167, 69, 0.25);
+  color: #5cff8b;
+  border-left-color: #5cff8b;
+}
+body.dark #answers .list-group-item-danger {
+  background-color: rgba(220, 53, 69, 0.25);
+  color: #ff6b7a;
+  border-left-color: #ff6b7a;
+}
 #feedback .alert {
   border-radius: 0.5rem;
   border-left: 4px solid;
   animation: slideIn 0.3s ease forwards;
 }
-
 #feedback .alert-success {
   background-color: rgba(40, 167, 69, 0.1);
   border-left-color: #28a745;
 }
-
 #feedback .alert-danger {
   background-color: rgba(220, 53, 69, 0.1);
   border-left-color: #dc3545;
 }
-
 #feedback .alert-primary {
   background-color: rgba(0, 123, 255, 0.1);
   border-left-color: #007bff;
 }
-
+body.dark #feedback .alert-success {
+  background-color: rgba(40, 167, 69, 0.15);
+  color: #5cff8b;
+  border-left-color: #5cff8b;
+}
+body.dark #feedback .alert-danger {
+  background-color: rgba(220, 53, 69, 0.15);
+  color: #ff6b7a;
+  border-left-color: #ff6b7a;
+}
+body.dark #feedback .alert-primary {
+  background-color: rgba(0, 255, 255, 0.15);
+  color: #ffffff;
+  border-left-color: var(--accent-color);
+}
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+.cursor-title,
+.cursor-subtext {
+  display: inline-block;
+  width: 1ch;
+  animation: blink 1s steps(2, start) infinite;
+}
+.cursor-title {
+  color: var(--accent-color);
+}
+.cursor-subtext {
+  color: #ffffff;
+}
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -500,27 +272,129 @@ body.light .nav-link:hover {
     transform: translateY(0);
   }
 }
-
-/* Results Styling */
-.alert-primary strong {
-  color: var(--accent-color);
+.border-dotted {
+  border: 2px dotted var(--accent-color);
+  border-radius: 1.25rem;
 }
-
-/* Dark Mode Adjustments */
-body.dark #answers .list-group-item {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
+.bot-img {
+  display: block;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  object-fit: cover;
 }
-
-body.dark #answers .list-group-item:hover,
-body.dark #answers .list-group-item.active {
-  background-color: rgba(0, 255, 224, 0.1);
+.question-btn {
+  transition: transform 0.1s, box-shadow 0.2s;
 }
-
-body.dark #answers .list-group-item-success {
-  background-color: rgba(40, 167, 69, 0.2);
+.question-btn:hover,
+.question-btn:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  color: #fff;
 }
-
-body.dark #answers .list-group-item-danger {
-  background-color: rgba(220, 53, 69, 0.2);
+#bot-chat-window .text-accent,
+#bot-chat-window > div {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+html.dark,
+body.dark,
+html[data-theme="dark"] {
+  background-color: var(--theme) !important;
+}
+body.dark .wrapper,
+body.dark .content-wrapper,
+body.dark .page-wrapper,
+body.dark .main-content,
+body.dark .main,
+body.dark .post-single {
+  background-color: var(--theme) !important;
+}
+body.dark .offcanvas-backdrop.show {
+  background-color: rgba(0, 0, 0, 0.55);
+}
+body.dark .offcanvas,
+body.dark .offcanvas-header {
+  background-color: var(--entry) !important;
+  color: var(--card-text) !important;
+  border-color: var(--border) !important;
+}
+body.dark .offcanvas .nav-pills .nav-link {
+  background: transparent;
+  color: var(--card-text);
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+body.dark .offcanvas .nav-pills .nav-link.active,
+body.dark .offcanvas .nav-pills .nav-link:hover {
+  background: var(--accent-color);
+  color: #000;
+  border-color: var(--accent-color);
+}
+body.dark #bot-chat-window {
+  background-color: var(--entry) !important;
+  color: var(--card-text) !important;
+  overflow-y: auto;
+}
+body.dark #bot-chat-window .message-bot {
+  background: #2a2a2a;
+  color: var(--card-text);
+}
+body.dark #bot-chat-window .message-user {
+  background: var(--accent-color);
+  color: #000;
+}
+body.dark #bot-chat-window::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+body.dark #bot-toggle,
+body.dark .offcanvas-header .btn-close {
+  filter: invert(1) hue-rotate(180deg);
+}
+body.dark ::-webkit-scrollbar {
+  width: 10px;
+}
+body.dark ::-webkit-scrollbar-track {
+  background: var(--theme);
+}
+body.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  border: 2px solid var(--theme);
+}
+body.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+@supports (scrollbar-color: auto) {
+  body.dark {
+    scrollbar-color: rgba(255, 255, 255, 0.25) var(--theme);
+    scrollbar-width: thin;
+  }
+}
+body.dark ::-webkit-scrollbar-track,
+body.dark ::-webkit-scrollbar-track-piece,
+html.dark ::-webkit-scrollbar-track,
+html.dark ::-webkit-scrollbar-track-piece {
+  background: var(--theme);
+}
+body.dark .offcanvas-body,
+.offcanvas-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+#bot-chat-window {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  max-width: 100%;
+  word-break: break-word;
+}
+#bot-chat-window .message-bot,
+#bot-chat-window .message-user {
+  max-width: 100%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
