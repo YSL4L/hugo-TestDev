@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Willkommen bei Stadtforschung on Stadtforschung</title>
-    <link>//localhost:1313/</link>
-    <description>Recent content in Willkommen bei Stadtforschung on Stadtforschung</description>
+    <title>Pages on Stadtforschung</title>
+    <link>//localhost:1313/pages/</link>
+    <description>Recent content in Pages on Stadtforschung</description>
     <generator>Hugo -- 0.147.7</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 03 Jun 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>KI und Stadtforschung</title>
-      <link>//localhost:1313/posts/first-test-post/</link>
-      <pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/first-test-post/</guid>
-      <description>&lt;p&gt;Willkommen zu meinem Beitrag über KI und Stadtforschung.&lt;/p&gt;</description>
-    </item>
+    <atom:link href="//localhost:1313/pages/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fallbeispiel – Eigene Forschung</title>
       <link>//localhost:1313/pages/fallbeispiel/</link>
@@ -37,11 +29,11 @@
       <description>Übersicht von Methoden der Stadtforschung in der Kulturanthropologie.</description>
     </item>
     <item>
-      <title>Projekt – Stadtforschung</title>
+      <title>Stadtforschung in der Kulturanthropologie – Was ist das?</title>
       <link>//localhost:1313/pages/projekt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/pages/projekt/</guid>
-      <description>Projektbeschreibung meiner Website zum Thema kulturanthropologische Stadtforschung</description>
+      <description>Ausführliche Informationen zur Stadtforschung in der Kulturanthropologie.</description>
     </item>
     <item>
       <title>Stadtforschung in der Kulturanthropologie – Was ist das?</title>

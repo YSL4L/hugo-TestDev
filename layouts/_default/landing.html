@@ -1,6 +1,6 @@
 {{ define "main" }}
 <main class="container py-5">
-  <!-- 1) Hero Section -->
+  <!-- 1) Hero Section mit Typewriter-Effekt -->
   <section class="text-center mb-5">
     <h1 class="display-4 fw-bold terminal-title">
       <span id="typed-title"></span>
@@ -14,71 +14,47 @@
     </p>
   </section>
 
-  <!-- 2) Grid Section mit nur den 3 Softcards links und Quest-Box rechts -->
+  <!-- 2) Einbinden der Pages-Listenansicht direkt von /pages/ -->
   <section class="mt-5">
-    <table style="width: 100%; border-collapse: separate; border-spacing: 15px">
-      <tr>
-        <td style="width: 75%; vertical-align: top">
-          <!-- Cards Container -->
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
-            <!-- Card 1 -->
-            <div class="col">
-              <div class="soft-card h-100 text-center p-4 d-flex flex-column">
-                <h5 class="fw-bold mb-3">Stadtforschung</h5>
-                <p class="flex-grow-1">
-                  Theorie und Praxis der urbanen Kulturanalyse.
-                </p>
-                <a
-                  href="/pages/stadtforschung"
-                  class="btn btn-outline-primary mt-auto"
-                >
-                  Mehr erfahren
-                </a>
-              </div>
-            </div>
-            <!-- Card 2 -->
-            <div class="col">
-              <div class="soft-card h-100 text-center p-4 d-flex flex-column">
-                <h5 class="fw-bold mb-3">Methoden</h5>
-                <p class="flex-grow-1">
-                  Teilnehmende Beobachtung, Go-Along, Mapping etc.
-                </p>
-                <a
-                  href="/pages/methoden"
-                  class="btn btn-outline-primary mt-auto"
-                >
-                  Methoden ansehen
-                </a>
-              </div>
-            </div>
-            <!-- Card 3 -->
-            <div class="col">
-              <div class="soft-card h-100 text-center p-4 d-flex flex-column">
-                <h5 class="fw-bold mb-3">Quiz</h5>
-                <p class="flex-grow-1">
-                  Teste dein Wissen rund um Stadt, KI und Forschung!
-                </p>
-                <a href="/pages/quiz" class="btn btn-outline-primary mt-auto">
-                  Quiz starten
-                </a>
-              </div>
-            </div>
+    {{ $pagesSection := .Site.GetPage "section" "pages" }} {{ if $pagesSection
+    }} {{ $pagesContent := $pagesSection.Content }} {{ if $pagesContent }} {{
+    $pagesContent | safeHTML }} {{ else }}
+    <!-- Fallback, falls die /pages/-Seite keinen Inhalt hat -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      {{ range where .Site.RegularPages "Section" "pages" }}
+      <div class="col">
+        <div class="soft-card h-100">
+          <div class="p-4">
+            <h3 class="h5 fw-bold mb-3">{{ .Title }}</h3>
+            <p>{{ .Description }}</p>
+            <a href="{{ .RelPermalink }}" class="btn btn-outline-primary mt-3">
+              Mehr erfahren
+            </a>
           </div>
-        </td>
-      </tr>
-    </table>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }} {{ end }}
   </section>
 
-  <!-- 3) Typewriter-Script -->
+  <!-- 3) Typewriter-Script mit verbesserter Textformatierung -->
   <script>
-    const titleText = "Stadtforschung & KI";
+    const titleText = "Stadtforschung in der Kulturnanthropologie";
     const subtitleText =
-      "Diese Website verbindet kulturanthropologische Stadtforschung mit digitalen Methoden.";
+      "Willkommen auf deiner Reise durch die Welt der Stadtforschung im Kontext der Kulturanthropologie und Europäischen Ethnologie! Die Website Stadtforschung gibt dir einen Überblick über Konzepte, Methoden, ein konkretes Fallbeispiel und aktuelle Publikationen. Teste zum Abschluss dein Wissen über die Stadtforschung mit meinem interaktiven Quiz. Viel Spaß!";
 
     const typedTitle = document.getElementById("typed-title");
     const cursorTitle = document.getElementById("cursor-title");
     const typedSubtext = document.getElementById("typed-subtext");
     const cursorSubtext = document.getElementById("cursor-subtext");
+
+    // Setze maximale Breite für den Subtext-Container
+    const subtextContainer = document.querySelector(".terminal-subtext");
+    subtextContainer.style.maxWidth = "800px";
+    subtextContainer.style.margin = "0 auto";
+    subtextContainer.style.whiteSpace = "normal";
+    subtextContainer.style.lineHeight = "1.5";
 
     let i = 0,
       j = 0;
@@ -92,12 +68,14 @@
         typeSubtext();
       }
     }
+
     function typeSubtext() {
       if (j < subtitleText.length) {
         typedSubtext.textContent += subtitleText.charAt(j++);
         setTimeout(typeSubtext, 40);
       }
     }
+
     document.addEventListener("DOMContentLoaded", typeTitle);
   </script>
 </main>
