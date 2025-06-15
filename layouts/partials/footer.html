@@ -290,6 +290,22 @@
       fullContent.classList.remove("d-none");
     });
 
+    // Initialisiere Bootstrap Offcanvas
+    const botOffcanvas = document.getElementById("botOffcanvas");
+    if (botOffcanvas) {
+      const offcanvasInstance = new bootstrap.Offcanvas(botOffcanvas);
+
+      // Chatbot-Button-Event hinzufügen
+      const chatbotButton = document.querySelector(
+        '[data-bs-target="#botOffcanvas"]'
+      );
+      if (chatbotButton) {
+        chatbotButton.addEventListener("click", function () {
+          offcanvasInstance.show();
+        });
+      }
+    }
+
     // On canvas show, reset to full
     offcanvas?.addEventListener("shown.bs.offcanvas", () => {
       minimized.classList.add("d-none");

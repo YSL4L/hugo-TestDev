@@ -2,20 +2,135 @@
    Farb- & Schriftvariablen
    ========================= */
 :root {
-  --accent-color: #00ffe0;
+  --accent-color: #00bbe0; /* Etwas dunklere Variante für besseren Kontrast im Light Mode */
   --bg-color: #f2f3f5;
   --text-color: #212529;
   --card-bg: #ffffff;
   --card-text: #212529;
   --font-default: "JetBrains Mono", monospace;
+  --link-color: #0078a0; /* Dunkleres Blau für bessere Lesbarkeit im Light Mode */
+  --navbar-bg: rgba(250, 250, 250, 0.95);
+  --navbar-border: rgba(0, 0, 0, 0.1);
+  --navbar-link: rgba(0, 0, 0, 0.7);
+  --navbar-link-hover: rgba(0, 0, 0, 0.9);
+  --navbar-link-hover-bg: rgba(0, 0, 0, 0.05);
 }
 
+/* Dark Mode Anpassungen */
 body.dark {
-  --accent-color: #00ffe0;
-  --bg-color: #1d1d1d;
-  --text-color: #f1f1f1;
-  --card-bg: #2a2a2a;
-  --card-text: #f1f1f1;
+  --accent-color: #0ff; /* Neon Cyan - sehr gut sichtbar im Dark Mode */
+  --bg-color: #121212; /* Dunklerer Hintergrund */
+  --text-color: #ffffff; /* Weißer Text für bessere Lesbarkeit */
+  --card-bg: #1e1e1e; /* Dunklerer Kartenhintergrund */
+  --card-text: #ffffff; /* Weißer Text in Karten */
+  --link-color: #00ccff; /* Leuchtenderes Blau für Links */
+  --heading-color: #0ff; /* Neon Cyan für Überschriften */
+  --navbar-bg: rgba(13, 17, 23, 0.95);
+  --navbar-border: rgba(100, 100, 100, 0.2);
+  --navbar-link: rgba(255, 255, 255, 0.8);
+  --navbar-link-hover: rgba(255, 255, 255, 1);
+  --navbar-link-hover-bg: rgba(
+    0,
+    255,
+    255,
+    0.15
+  ); /* Neon Cyan Hintergrund beim Hover */
+}
+
+/* Füge diese neuen Styles hinzu, um Überschriften im Dark Mode anzupassen */
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6 {
+  color: var(--heading-color);
+}
+
+/* Verbessere die Sichtbarkeit von aktiven Navbar-Links im Dark Mode */
+body.dark .nav-link.active {
+  color: var(--accent-color);
+  background-color: rgba(0, 255, 255, 0.15);
+}
+
+body.dark .nav-link.active:before {
+  background-color: var(--accent-color);
+}
+
+/* Verbessere die Sichtbarkeit von Buttons im Dark Mode */
+body.dark .btn-outline-primary {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+body.dark .btn-outline-primary:hover {
+  background-color: var(--accent-color);
+  color: #000; /* Schwarzer Text auf hellem Hintergrund für Kontrast */
+}
+
+body.dark .btn-primary {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #000; /* Schwarzer Text auf hellem Hintergrund für Kontrast */
+}
+
+/* Soft Card im Dark Mode verbessern */
+body.dark .soft-card {
+  border-left-color: var(--accent-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .soft-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 255, 255, 0.2);
+}
+
+/* Verbessere die Quiz-Komponenten im Dark Mode */
+body.dark #answers .list-group-item {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border-color: #444;
+}
+
+body.dark #answers .list-group-item:hover {
+  background-color: rgba(0, 255, 255, 0.1);
+  border-left-color: var(--accent-color);
+}
+
+body.dark #answers .list-group-item.active {
+  background-color: rgba(0, 255, 255, 0.15);
+  border-left-color: var(--accent-color);
+  color: white;
+}
+
+body.dark #answers .list-group-item-success {
+  background-color: rgba(40, 167, 69, 0.25);
+  color: #5cff8b; /* Helleres Grün im Dark Mode */
+  border-left-color: #5cff8b;
+}
+
+body.dark #answers .list-group-item-danger {
+  background-color: rgba(220, 53, 69, 0.25);
+  color: #ff6b7a; /* Helleres Rot im Dark Mode */
+  border-left-color: #ff6b7a;
+}
+
+/* Feedback-Elemente im Dark Mode verbessern */
+body.dark #feedback .alert-success {
+  background-color: rgba(40, 167, 69, 0.15);
+  color: #5cff8b;
+  border-left-color: #5cff8b;
+}
+
+body.dark #feedback .alert-danger {
+  background-color: rgba(220, 53, 69, 0.15);
+  color: #ff6b7a;
+  border-left-color: #ff6b7a;
+}
+
+body.dark #feedback .alert-primary {
+  background-color: rgba(0, 255, 255, 0.15);
+  color: #ffffff;
+  border-left-color: var(--accent-color);
 }
 
 /* =================
@@ -283,43 +398,7 @@ body.light .nav-link:hover {
   word-wrap: break-word;
   word-break: break-word;
 }
-.image-zoom-container {
-  position: relative;
-  display: inline-block;
-  cursor: zoom-in;
-  overflow: hidden;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
 
-.zoom-preview {
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.image-zoom-container:hover .zoom-preview {
-  transform: scale(1.03);
-}
-
-.zoom-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
-  color: white;
-  opacity: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  transition: opacity 0.3s ease;
-}
-
-.image-zoom-container:hover .zoom-overlay {
-  opacity: 1;
-}
 .navbar-toggler {
   color: var(--primary-color) !important;
   background-color: transparent !important;
