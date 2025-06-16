@@ -4,7 +4,6 @@ description: "Projektbeschreibung meiner Website zum Thema kulturanthropologisch
 keywords:
   - Stadtforschung
   - Kulturanthropologie
-layout: "page"
 weight: 4
 ---
 

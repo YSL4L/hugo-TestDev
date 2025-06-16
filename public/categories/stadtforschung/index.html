@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8" />
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta
   name="viewport"
@@ -29,16 +30,8 @@
 <link
   rel="preload stylesheet"
   as="style"
-  href="/assets/css/stylesheet.06df34c49da28e88ac30731a6aee7dcaae594da2234648bba92edf45e0932ba2.css"
-  integrity="sha256-Bt80xJ2ijoisMHMaau59yq5ZTaIjRki7qS7fReCTK6I="
-  crossorigin="anonymous"
-/>
-
-
-<link
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-  rel="stylesheet"
-  integrity="sha384-VzvQ+Nyc1j6WhHh2yRlG2uRlh3KTLWwEzDxMDcfuRkhF7LtTSTjsZ2QgIsNU3eEw"
+  href="/assets/css/stylesheet.b64cb215338d31ef4b80c989465845fe7dfd499f75785530bc4b274f919bc1e2.css"
+  integrity="sha256-tkyyFTONMe9LgMmJRlhF/n39SZ91eFUwvEsnT5GbweI="
   crossorigin="anonymous"
 />
 
@@ -62,21 +55,24 @@
 
 
 
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-  crossorigin="anonymous"
-></script>
 
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous">
+
   
-  <link rel="stylesheet" href="/css/image-zoom.css">
+  <link rel="stylesheet" href="/css/extended/blank.css">
 </head>
 
-<body class="list" id="top">
+<body
+  class="list"
+  id="top">
+
+  
 <script>
   if (localStorage.getItem("pref-theme") === "dark") {
     document.body.classList.add("dark");
@@ -277,7 +273,10 @@
     });
   </script>
 </header>
-<main class="main"> 
+
+
+  <main class="main">
+     
 <header class="page-header">
   <h1>
     Stadtforschung
@@ -298,6 +297,9 @@
 </article>
   </main>
 
+  
+
+
 <button
   class="btn btn-primary rounded-circle position-fixed d-flex align-items-center justify-content-center"
   style="
@@ -317,6 +319,7 @@
 >
   🤖
 </button>
+
 
 <div
   class="offcanvas offcanvas-end"
@@ -357,20 +360,30 @@
     </div>
   </div>
 
+  
   <div class="offcanvas-body p-3" id="botFullContent">
-    
     <div class="card border-0 h-100 shadow-sm">
       <div
         class="card-header bg-light border-bottom d-flex justify-content-center p-2"
       >
         <div class="d-flex flex-wrap justify-content-center gap-2">
-          <button class="btn btn-danger btn-sm question-btn">Bugfixes</button>
-          <button class="btn btn-info btn-sm question-btn">
-            Versionspflege
+          <button
+            class="btn btn-danger btn-sm question-btn"
+            data-key="Stadtforschung"
+          >
+            Was ist Stadtforschung?
           </button>
-          <button class="btn btn-warning btn-sm question-btn">Tests</button>
-          <button class="btn btn-secondary btn-sm question-btn">
-            Altcode reparieren
+          <button class="btn btn-info btn-sm question-btn" data-key="Methode">
+            Erkläre mir eine wichtige Methode der Stadtforschung
+          </button>
+          <button
+            class="btn btn-warning btn-sm question-btn"
+            data-key="Leitfaden"
+          >
+            Gib mir ein Beispiel für einen Interviewleitfaden
+          </button>
+          <button class="btn btn-secondary btn-sm question-btn" data-key="KI">
+            Bist du eine KI?
           </button>
         </div>
       </div>
@@ -389,8 +402,6 @@
             overflow-x: hidden;
           "
         >
-          
-          
           <div class="text-accent mb-1">
             <span class="fw-bold">Bot:</span> Hallo! Wie kann ich dir helfen?
             Klicke eine der obigen Optionen.
@@ -399,7 +410,7 @@
       </div>
 
       <div class="card-footer bg-light text-center p-2 small text-muted">
-        Powered by AI – Stadtforschung &amp; KI
+        Powered by Uli&nbsp;&amp;&nbsp;GPT o3 – Stadtforschung & BOT
       </div>
     </div>
   </div>
@@ -426,12 +437,10 @@
   </div>
 </div>
 
-
 <footer class="footer">
   <span
     >&copy; 2025 <a href="/">Stadtforschung</a></span
   > · 
-
   <span>
     Powered by
     <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &
@@ -461,65 +470,60 @@
 </a> 
 
 <script>
-  
-  let menu = document.getElementById("menu");
+   
+  const menu = document.getElementById("menu");
   if (menu) {
     menu.scrollLeft = localStorage.getItem("menu-scroll-position") || 0;
     menu.onscroll = () =>
       localStorage.setItem("menu-scroll-position", menu.scrollLeft);
   }
 
-  
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", (e) => {
+   
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener("click", (e) => {
       e.preventDefault();
-      let id = anchor.getAttribute("href").slice(1);
-      let target = document.getElementById(decodeURIComponent(id));
-      if (target) {
-        target.scrollIntoView({
+      const id = a.getAttribute("href").slice(1);
+      const t = document.getElementById(decodeURIComponent(id));
+      if (t) {
+        t.scrollIntoView({
           behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
             .matches
             ? "auto"
             : "smooth",
         });
-        history.pushState(null, null, `#${id}`);
+        history.pushState(null, null, "#" + id);
       }
     });
   });
 </script>
 <script>
-  
-  let topLink = document.getElementById("top-link");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 800) {
-      topLink.style.visibility = "visible";
-      topLink.style.opacity = "1";
-    } else {
-      topLink.style.visibility = "hidden";
-      topLink.style.opacity = "0";
-    }
-  });
-</script>
-<script>
-  
   document.getElementById("theme-toggle")?.addEventListener("click", () => {
-    let isDark = document.body.classList.toggle("dark");
+    const isDark = document.body.classList.toggle("dark");
     localStorage.setItem("pref-theme", isDark ? "dark" : "light");
   });
 </script>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+     
     const faq = {
-      Bugfixes: "Ich kümmere mich um Fehlerbehebungen in deinem Code.",
-      Versionspflege:
-        "Ich aktualisiere Abhängigkeiten und sorge für aktuelle Versionen.",
-      Tests: "Ich schreibe und führe Unit- und Integrationstests für dich aus.",
-      "Altcode reparieren":
-        "Ich überarbeite und verbessere alten oder unleserlichen Code.",
+      Stadtforschung: `Die Stadtforschung in der Kulturanthropologie und Europäischen Ethnologie ist ein vielfältiges Feld, das sich besonders durch die Perspektive der Stadt selbst, der teilnehmenden Akteure sowie der ständigen Rekonstruktion durch Praktiken der Stadtakteure definiert. Als Geburtsstätten der Stadtforschung sind nach Carolin Genz besonders Straßenecken, Cafés und Nachbarschaftsquartiere innerhalb von Chicago im Zeitraum der 1920er Jahre zu nennen (vgl. Genz 2020: 13).`,
+      Methode: `Die systematische Akquise von Literatur ist der Grundstein einer wissenschaftlich fundierten Forschung. Sie hilft, Forschungsstand, Begriffe und Theorien zu erarbeiten und bildet zugleich die Grundlage für weitere Methoden wie leitfadengestützte Interviews oder teilnehmende Beobachtungen (vgl. JLU Gießen 2023: 5).`,
+      Leitfaden: `
+    <ul class="ps-3">
+      <li>What was your first encounter with the Erasmus-WhatsApp-groups and what was your intention behind participating in those groups?</li>
+      <li>Which kind of places did you visit through the participation in those groups?</li>
+      <li>Do you see any problems related to the participation in the WhatsApp-Groups?</li>
+      <li>Which influence had the participation in the groups on your everyday life and the way you experienced the city as an international student?</li>
+      <li>How would you describe your access to digital ressources like internet or mobile devices?</li>
+      <li>What would be your resume of the participation within the Erasmus groups and of course of other things you mentioned as well. How would you rate this experience?</li>
+      <li>When you think of a scenario without the groups. Do you think there are analog ways to participate for international students to still find out about all the events and activities?</li>
+    </ul>
+  `,
+      KI: `Nein, Uli hat mir feste Antworten basierend auf den Inhalten seiner Stadtforschungs-Seite gegeben.`,
     };
 
-    
+     
     const minimizeBtn = document.getElementById("minimizeBot");
     const expandBtn = document.getElementById("expandBot");
     const fullContent = document.getElementById("botFullContent");
@@ -527,22 +531,19 @@
     const offcanvas = document.getElementById("botOffcanvas");
 
     function appendMsg(who, text) {
-      const chatWin = document.getElementById("bot-chat-window");
-      if (!chatWin) return;
-      let d = document.createElement("div");
-      d.className = who === "bot" ? "text-accent mb-1" : "mb-1";
-      d.style.whiteSpace = "pre-wrap";
-      d.style.overflowWrap = "break-word";
-      d.style.wordBreak = "break-word";
-      d.innerHTML =
-        who === "bot"
-          ? '<span class="fw-bold">Bot:</span> ' + text
-          : '<span class="text-primary fw-bold">Du:</span> ' + text;
-      chatWin.appendChild(d);
-      chatWin.scrollTop = chatWin.scrollHeight;
+      const chat = document.getElementById("bot-chat-window");
+      if (!chat) return;
+      const div = document.createElement("div");
+      div.className = who === "bot" ? "text-accent mb-1" : "mb-1";
+      div.innerHTML =
+        (who === "bot"
+          ? '<span class="fw-bold">Bot:</span> '
+          : '<span class="text-primary fw-bold">Du:</span> ') +
+        text.replace(/\n/g, "<br>");
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
     }
 
-    
     minimizeBtn?.addEventListener("click", () => {
       fullContent.classList.add("d-none");
       minimized.classList.remove("d-none");
@@ -552,35 +553,18 @@
       fullContent.classList.remove("d-none");
     });
 
-    
-    const botOffcanvas = document.getElementById("botOffcanvas");
-    if (botOffcanvas) {
-      const offcanvasInstance = new bootstrap.Offcanvas(botOffcanvas);
-
-      
-      const chatbotButton = document.querySelector(
-        '[data-bs-target="#botOffcanvas"]'
-      );
-      if (chatbotButton) {
-        chatbotButton.addEventListener("click", function () {
-          offcanvasInstance.show();
-        });
-      }
-    }
-
-    
     offcanvas?.addEventListener("shown.bs.offcanvas", () => {
       minimized.classList.add("d-none");
       fullContent.classList.remove("d-none");
     });
 
-    
+     
     document.querySelectorAll("#botOffcanvas .question-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
-        let q = btn.textContent.trim();
-        appendMsg("user", q);
+        const key = btn.dataset.key || btn.textContent.trim();
+        appendMsg("user", btn.textContent.trim());
         setTimeout(
-          () => appendMsg("bot", faq[q] || "Dazu habe ich keine Antwort."),
+          () => appendMsg("bot", faq[key] || "Dazu habe ich keine Antwort."),
           300
         );
       });
@@ -588,8 +572,11 @@
   });
 </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-          crossorigin="anonymous"></script>
+
+  
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
 </body>
 </html>
