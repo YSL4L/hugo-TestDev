@@ -36,7 +36,6 @@ else if and (ne site.Params.defaultTheme "light") (ne site.Params.defaultTheme
 <header class="tech-navbar">
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg py-3">
-      <!-- Logo/Brand with Terminal-style text -->
       {{- $label_text := (site.Params.label.text | default site.Title) -}}
       <a
         class="navbar-brand terminal-text"
@@ -49,7 +48,6 @@ else if and (ne site.Params.defaultTheme "light") (ne site.Params.defaultTheme
         ><span class="terminal-cursor">_</span>
       </a>
 
-      <!-- Mobile Toggle Button -->
       <button
         class="navbar-toggler border-0 shadow-none"
         type="button"
@@ -62,7 +60,6 @@ else if and (ne site.Params.defaultTheme "light") (ne site.Params.defaultTheme
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Collapsible Navbar Content -->
       <div class="collapse navbar-collapse" id="techNavbarContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           {{- range site.Menus.main }}
@@ -76,7 +73,6 @@ else if and (ne site.Params.defaultTheme "light") (ne site.Params.defaultTheme
           </li>
           {{- end }}
 
-          <!-- Theme Toggle Button -->
           <li class="nav-item ms-lg-2">
             <button
               id="theme-toggle"
@@ -148,7 +144,6 @@ else if and (ne site.Params.defaultTheme "light") (ne site.Params.defaultTheme
       </div>
     </nav>
   </div>
-  <!-- Theme toggle script -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const themeToggle = document.getElementById("theme-toggle");
@@ -159,7 +154,6 @@ else if and (ne site.Params.defaultTheme "light") (ne site.Params.defaultTheme
       const scrollThreshold = 100;
       let headerVisible = true;
 
-      // Theme Toggle Funktionalität
       const currentTheme = localStorage.getItem("theme") || "dark";
       body.classList.toggle("light", currentTheme === "light");
 
@@ -169,24 +163,21 @@ else if and (ne site.Params.defaultTheme "light") (ne site.Params.defaultTheme
         localStorage.setItem("theme", theme);
       });
 
-      // Header Toggle Funktionalität
       function toggleHeader() {
         headerVisible = !headerVisible;
         header.style.transform = headerVisible
           ? "translateY(0)"
           : "translateY(-100%)";
-        // Ändere das Icon je nach Zustand
+
         toggleButton.innerHTML = headerVisible
           ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>'
           : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>';
       }
 
-      // Button-Event für manuelles Umschalten
       if (toggleButton) {
         toggleButton.addEventListener("click", toggleHeader);
       }
 
-      // Scroll-Event für automatisches Ein-/Ausblenden
       window.addEventListener("scroll", function () {
         const scrollTop =
           window.pageYOffset || document.documentElement.scrollTop;
@@ -196,7 +187,6 @@ else if and (ne site.Params.defaultTheme "light") (ne site.Params.defaultTheme
           headerVisible = false;
           header.style.transform = "translateY(-100%)";
         } else {
-          // Hochscrollen oder am Seitenanfang
           headerVisible = true;
           header.style.transform = "translateY(0)";
         }
