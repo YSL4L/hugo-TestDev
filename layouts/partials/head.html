@@ -49,13 +49,11 @@ else }}{{- if or .IsPage .IsSection }}{{ .Summary | default (printf "%s - %s"
 <meta name="naver-site-verification" content="{{ . }}" />
 {{- end }}
 
-<!-- Fonts (tech-style) -->
 <link
   href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap"
   rel="stylesheet"
 />
 
-<!-- CSS bundling -->
 {{- $includes := slice }} {{- $includes = $includes | append (" " |
 resources.FromString "assets/css/includes-blank.css") }} {{- if not (eq
 site.Params.assets.disableScrollBarStyle true) }} {{- $ScrollStyle :=
@@ -89,10 +87,7 @@ $stylesheet | fingerprint }}
   href="{{ $stylesheet.RelPermalink }}"
   crossorigin="anonymous"
 />
-{{- end }}
-
-<!-- Search (only for layout = search) -->
-{{- if eq .Layout "search" }}
+{{- end }} {{- if eq .Layout "search" }}
 <link rel="preload" as="fetch" href="../index.json" crossorigin="anonymous" />
 {{- $fastsearch := resources.Get "js/fastsearch.js" | js.Build (dict "params"
 (dict "fuseOpts" site.Params.fuseOpts)) | resources.Minify }} {{- $fusejs :=
@@ -109,23 +104,19 @@ $search := slice $fusejs $license_js $fastsearch | resources.Concat
 {{- else }} {{- $search := slice $fusejs $fastsearch | resources.Concat
 "assets/js/search.js" }}
 <script defer src="{{ $search.RelPermalink }}" crossorigin="anonymous"></script>
-{{- end }} {{- end }}
-
-<!-- Favicons -->
-<link rel="icon" href="{{ site.Params.assets.favicon | default "favicon.ico" |
-absURL }}"> <link rel="icon" type="image/png" sizes="16x16" href="{{
-site.Params.assets.favicon16x16 | default "favicon-16x16.png" | absURL }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{
-site.Params.assets.favicon32x32 | default "favicon-32x32.png" | absURL }}">
-<link rel="apple-touch-icon" href="{{ site.Params.assets.apple_touch_icon |
-default "apple-touch-icon.png" | absURL }}"> <link rel="mask-icon" href="{{
-site.Params.assets.safari_pinned_tab | default "safari-pinned-tab.svg" | absURL
-}}"> <meta name="theme-color" content="{{ site.Params.assets.theme_color |
-default "#2e2e33" }}"> <meta name="msapplication-TileColor" content="{{
-site.Params.assets.msapplication_TileColor | default "#2e2e33" }}">
-
-<!-- RSS + Translations -->
-{{ range .AlternativeOutputFormats }}
+{{- end }} {{- end }} <link rel="icon" href="{{ site.Params.assets.favicon |
+default "favicon.ico" | absURL }}"> <link rel="icon" type="image/png"
+sizes="16x16" href="{{ site.Params.assets.favicon16x16 | default
+"favicon-16x16.png" | absURL }}"> <link rel="icon" type="image/png"
+sizes="32x32" href="{{ site.Params.assets.favicon32x32 | default
+"favicon-32x32.png" | absURL }}"> <link rel="apple-touch-icon" href="{{
+site.Params.assets.apple_touch_icon | default "apple-touch-icon.png" | absURL
+}}"> <link rel="mask-icon" href="{{ site.Params.assets.safari_pinned_tab |
+default "safari-pinned-tab.svg" | absURL }}"> <meta name="theme-color"
+content="{{ site.Params.assets.theme_color | default "#2e2e33" }}"> <meta
+name="msapplication-TileColor" content="{{
+site.Params.assets.msapplication_TileColor | default "#2e2e33" }}"> {{ range
+.AlternativeOutputFormats }}
 <link
   rel="{{ .Rel }}"
   type="{{ .MediaType.Type | html }}"
@@ -133,10 +124,7 @@ site.Params.assets.msapplication_TileColor | default "#2e2e33" }}">
 />
 {{ end }} {{ range .AllTranslations }}
 <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}" />
-{{ end }}
-
-<!-- Erweiterungen -->
-{{ partial "extend_head.html" . }} {{- if hugo.IsProduction | or (eq
+{{ end }} {{ partial "extend_head.html" . }} {{- if hugo.IsProduction | or (eq
 site.Params.env "production") }} {{ partial "google_analytics.html" . }} {{
 partial "templates/opengraph.html" . }} {{ partial
 "templates/twitter_cards.html" . }} {{ partial "templates/schema_json.html" . }}

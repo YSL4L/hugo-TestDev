@@ -1,6 +1,5 @@
 {{- /* layouts/partials/footer.html */ -}} {{- if not (.Param "hideFooter") }}
 
-<!-- Chatbot-Button -->
 <button
   class="btn btn-primary rounded-circle position-fixed d-flex align-items-center justify-content-center"
   style="
@@ -21,7 +20,6 @@
   🤖
 </button>
 
-<!-- Offcanvas -->
 <div
   class="offcanvas offcanvas-end"
   tabindex="-1"
@@ -61,7 +59,6 @@
     </div>
   </div>
 
-  <!-- Vollansicht -->
   <div class="offcanvas-body p-3" id="botFullContent">
     <div class="card border-0 h-100 shadow-sm">
       <div
@@ -116,7 +113,6 @@
     </div>
   </div>
 
-  <!-- Minimiert -->
   <div class="offcanvas-body p-3 d-none" id="botMinimized">
     <div class="d-flex justify-content-between align-items-center">
       <span class="text-muted">Bot minimiert</span>
@@ -178,7 +174,6 @@
 {{- end }} {{ partial "extend_footer.html" . }}
 
 <script>
-  /* Menu-Scroll-Persistence */
   const menu = document.getElementById("menu");
   if (menu) {
     menu.scrollLeft = localStorage.getItem("menu-scroll-position") || 0;
@@ -186,7 +181,6 @@
       localStorage.setItem("menu-scroll-position", menu.scrollLeft);
   }
 
-  /* Smooth-Scroll für interne Links */
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener("click", (e) => {
       e.preventDefault();
@@ -215,7 +209,6 @@
 {{- end }} {{- if and (eq .Kind "page") (ne .Layout "archives") (ne .Layout
 "search") (.Param "ShowCodeCopyButtons") }}
 <script>
-  /* Copy-to-Clipboard Buttons */
   document.querySelectorAll("pre > code").forEach((code) => {
     const container = code.closest("div.highlight") || code.parentNode;
     const btn = document.createElement("button");
@@ -237,7 +230,6 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    /* Bot-FAQ */
     const faq = {
       Stadtforschung: `Die Stadtforschung in der Kulturanthropologie und Europäischen Ethnologie ist ein vielfältiges Feld, das sich besonders durch die Perspektive der Stadt selbst, der teilnehmenden Akteure sowie der ständigen Rekonstruktion durch Praktiken der Stadtakteure definiert. Als Geburtsstätten der Stadtforschung sind nach Carolin Genz besonders Straßenecken, Cafés und Nachbarschaftsquartiere innerhalb von Chicago im Zeitraum der 1920er Jahre zu nennen (vgl. Genz 2020: 13).`,
       Methode: `Die systematische Akquise von Literatur ist der Grundstein einer wissenschaftlich fundierten Forschung. Sie hilft, Forschungsstand, Begriffe und Theorien zu erarbeiten und bildet zugleich die Grundlage für weitere Methoden wie leitfadengestützte Interviews oder teilnehmende Beobachtungen (vgl. JLU Gießen 2023: 5).`,
@@ -255,7 +247,6 @@
       KI: `Nein, Uli hat mir feste Antworten basierend auf den Inhalten seiner Stadtforschungs-Seite gegeben.`,
     };
 
-    /* Offcanvas State */
     const minimizeBtn = document.getElementById("minimizeBot");
     const expandBtn = document.getElementById("expandBot");
     const fullContent = document.getElementById("botFullContent");
@@ -290,7 +281,6 @@
       fullContent.classList.remove("d-none");
     });
 
-    /* Button-Handling mit data-key */
     document.querySelectorAll("#botOffcanvas .question-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         const key = btn.dataset.key || btn.textContent.trim();

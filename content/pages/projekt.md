@@ -18,29 +18,17 @@ Das Projekt soll Nutzer*Innen einladen, sich mit dem Thema Stadtforschung im Kon
 - Darstellung einer komprimierten Übersicht der Stadtforschung
 - Übersicht wichtiger Methoden und Forschungsansätze der Stadtforschung im Kontext der Kulturanthropologie
 - Wissensabfrage per interaktiven JavaScript-Quiz
-- Übersicht wichtiger Publikationen per Einbindung der Google Books und Springer API
+- Übersicht thematischer Fragen mit dem Stadtforschungsbot
 
 ---
 
 ## Verwendete Datenquellen
 
-### Google Books API
+### Papermod Theme (Hugo)
 
-Bücher und Metadaten über die Google Books-Schnittstelle.
+Layout für Hugo
 
-[Mehr erfahren](https://developers.google.com/books)
-
-### Springer Nature API
-
-Zugriff auf wissenschaftliche Publikationen und Cover-Bilder.
-
-[Mehr erfahren](https://dev.springernature.com)
-
-### OpenLibrary Covers
-
-Fallback-Coverbilder über OpenLibrary Cover API.
-
-[Mehr erfahren](https://openlibrary.org/dev/docs/api/covers)
+[Mehr erfahren](https://github.com/adityatelange/hugo-PaperMod)
 
 ### OpenAI ChatGPT
 
