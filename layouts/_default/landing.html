@@ -1,6 +1,5 @@
 {{ define "main" }}
 <main class="container py-5">
-  <!-- 1) Hero Section mit Typewriter-Effekt -->
   <section class="text-center mb-5">
     <h1 class="display-4 fw-bold terminal-title">
       <span id="typed-title"></span>
@@ -14,12 +13,11 @@
     </p>
   </section>
 
-  <!-- 2) Einbinden der Pages-Listenansicht direkt von /pages/ -->
   <section class="mt-5">
     {{ $pagesSection := .Site.GetPage "section" "pages" }} {{ if $pagesSection
     }} {{ $pagesContent := $pagesSection.Content }} {{ if $pagesContent }} {{
     $pagesContent | safeHTML }} {{ else }}
-    <!-- Fallback, falls die /pages/-Seite keinen Inhalt hat -->
+
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 g-4">
       {{ range where .Site.RegularPages "Section" "pages" }}
       <div class="col">
@@ -38,10 +36,9 @@
     {{ end }} {{ end }}
   </section>
 
-  <!-- 3) Typewriter-Script mit verbesserter Textformatierung -->
   <script>
     const titleText = "Stadtforschung in der Kulturanthropologie";
-    // Text mit <br> Tags für Zeilenumbrüche
+
     const subtitleTextWithBreaks =
       "Willkommen auf deiner Reise durch die Welt der Stadtforschung" +
       "<br>im Kontext der Kulturanthropologie und Europäischen Ethnologie!" +
@@ -50,7 +47,6 @@
       "<br>Teste zum Abschluss dein Wissen über die Stadtforschung mit" +
       "<br>meinem interaktiven Quiz. Viel Spaß!";
 
-    // Die flache Textversion zum Animieren
     const subtitleText = subtitleTextWithBreaks.replace(/<br>/g, " ");
 
     const typedTitle = document.getElementById("typed-title");
@@ -58,12 +54,11 @@
     const typedSubtext = document.getElementById("typed-subtext");
     const cursorSubtext = document.getElementById("cursor-subtext");
 
-    // Styling für bessere Lesbarkeit
     const subtextContainer = document.querySelector(".terminal-subtext");
     subtextContainer.style.maxWidth = "800px";
     subtextContainer.style.margin = "0 auto";
     subtextContainer.style.whiteSpace = "normal";
-    subtextContainer.style.lineHeight = "1.8"; // Erhöhter Zeilenabstand
+    subtextContainer.style.lineHeight = "1.8";
 
     let i = 0,
       j = 0;
@@ -79,17 +74,11 @@
     }
 
     function typeSubtext() {
-      // Problem: Der j-Zähler basiert auf dem reinen Text,
-      // aber wir schneiden den Text mit HTML-Tags ab
-
       if (j <= subtitleText.length) {
-        // Berechne die korrekte Position im HTML-Text
         let htmlPos = 0;
         let plainTextCount = 0;
 
-        // Durchlaufe den Text mit HTML-Tags
         while (plainTextCount < j && htmlPos < subtitleTextWithBreaks.length) {
-          // Wenn aktuelles Zeichen ein < ist, überspringe den gesamten Tag
           if (subtitleTextWithBreaks.charAt(htmlPos) === "<") {
             while (
               htmlPos < subtitleTextWithBreaks.length &&
@@ -97,15 +86,13 @@
             ) {
               htmlPos++;
             }
-            htmlPos++; // Überspringe auch das >
+            htmlPos++;
           } else {
-            // Normales Zeichen
             plainTextCount++;
             htmlPos++;
           }
         }
 
-        // Zeige den HTML-Text bis zur berechneten Position
         typedSubtext.innerHTML = subtitleTextWithBreaks.substring(0, htmlPos);
         j++;
         setTimeout(typeSubtext, 40);

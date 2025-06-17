@@ -253,7 +253,6 @@ name="msapplication-TileColor" content="#2e2e33">
   <main class="main">
     
 <main class="container py-5">
-  
   <section class="text-center mb-5">
     <h1 class="display-4 fw-bold terminal-title">
       <span id="typed-title"></span>
@@ -267,10 +266,9 @@ name="msapplication-TileColor" content="#2e2e33">
     </p>
   </section>
 
-  
   <section class="mt-5">
        
-    
+
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 g-4">
       
       <div class="col">
@@ -337,10 +335,9 @@ name="msapplication-TileColor" content="#2e2e33">
      
   </section>
 
-  
   <script>
     const titleText = "Stadtforschung in der Kulturanthropologie";
-    
+
     const subtitleTextWithBreaks =
       "Willkommen auf deiner Reise durch die Welt der Stadtforschung" +
       "<br>im Kontext der Kulturanthropologie und Europäischen Ethnologie!" +
@@ -349,7 +346,6 @@ name="msapplication-TileColor" content="#2e2e33">
       "<br>Teste zum Abschluss dein Wissen über die Stadtforschung mit" +
       "<br>meinem interaktiven Quiz. Viel Spaß!";
 
-    
     const subtitleText = subtitleTextWithBreaks.replace(/<br>/g, " ");
 
     const typedTitle = document.getElementById("typed-title");
@@ -357,12 +353,11 @@ name="msapplication-TileColor" content="#2e2e33">
     const typedSubtext = document.getElementById("typed-subtext");
     const cursorSubtext = document.getElementById("cursor-subtext");
 
-    
     const subtextContainer = document.querySelector(".terminal-subtext");
     subtextContainer.style.maxWidth = "800px";
     subtextContainer.style.margin = "0 auto";
     subtextContainer.style.whiteSpace = "normal";
-    subtextContainer.style.lineHeight = "1.8"; 
+    subtextContainer.style.lineHeight = "1.8";
 
     let i = 0,
       j = 0;
@@ -378,17 +373,11 @@ name="msapplication-TileColor" content="#2e2e33">
     }
 
     function typeSubtext() {
-      
-      
-
       if (j <= subtitleText.length) {
-        
         let htmlPos = 0;
         let plainTextCount = 0;
 
-        
         while (plainTextCount < j && htmlPos < subtitleTextWithBreaks.length) {
-          
           if (subtitleTextWithBreaks.charAt(htmlPos) === "<") {
             while (
               htmlPos < subtitleTextWithBreaks.length &&
@@ -396,15 +385,13 @@ name="msapplication-TileColor" content="#2e2e33">
             ) {
               htmlPos++;
             }
-            htmlPos++; 
+            htmlPos++;
           } else {
-            
             plainTextCount++;
             htmlPos++;
           }
         }
 
-        
         typedSubtext.innerHTML = subtitleTextWithBreaks.substring(0, htmlPos);
         j++;
         setTimeout(typeSubtext, 40);

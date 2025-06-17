@@ -1,7 +1,6 @@
 # A minimal config.yaml that won't break your existing setup
 title: "Stadtforschung"
 
-# Just add the menu items for your navbar
 menu:
   main:
     - name: "Home"
@@ -15,11 +14,10 @@ menu:
       weight: 3
     - name: Stadtforschung
       url: /pages/stadtforschung/
-      weight: 4 # Anpassen nach gewünschter Position
+      weight: 4
     - name: Methoden
       url: /pages/methoden/
-      weight: 5 # Anpassen nach gewünschter Position
+      weight: 5
     - name: Quiz
       url: /pages/quiz/
-      weight: 6 # Anpassen nach gewünschter Position
-
+      weight: 6
