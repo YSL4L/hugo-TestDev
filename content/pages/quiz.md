@@ -155,24 +155,24 @@ const quizData = [
       btn.textContent = opt;
       btn.dataset.index = i;
       btn.addEventListener("click", () => {
-        // Entferne 'active' von allen Buttons
+        
         answersElement.querySelectorAll("button").forEach(b => b.classList.remove("active"));
-        // Füge 'active' zum aktuellen Button hinzu
+        
         btn.classList.add("active");
-        // Speichere ausgewählten Index
+       
         selectedAnswer = i;
-        // Aktiviere Submit-Button
+       
         submitButton.disabled = false;
       });
       
       answersElement.appendChild(btn);
     });
     
-    // Zurücksetzen des Feedback-Bereichs
+   
     feedbackElement.classList.add("visually-hidden");
     feedbackElement.innerHTML = "";
     
-    // Buttons zurücksetzen
+    
     submitButton.disabled = true;
     submitButton.classList.remove("d-none");
     nextButton.classList.add("d-none");
@@ -185,27 +185,27 @@ const quizData = [
     
     const correctIdx = quizData[currentQuestion].correct;
     
-    // Deaktiviere alle Answer-Buttons
+    
     Array.from(answersElement.children).forEach((btn, i) => {
       btn.disabled = true;
       
-      // Markiere die richtige Antwort grün
+     
       if (i === correctIdx) {
         btn.classList.add("list-group-item-success");
       }
       
-      // Markiere die falsche Auswahl rot (falls falsch gewählt)
+      
       if (i === selectedAnswer && selectedAnswer !== correctIdx) {
         btn.classList.add("list-group-item-danger");
       }
     });
     
-    // Zeige Feedback
+  
     feedbackElement.classList.remove("visually-hidden");
     
     if (selectedAnswer === correctIdx) {
       feedbackElement.innerHTML = '<div class="alert alert-success">Richtig! Du hast die korrekte Antwort gewählt.</div>';
-      score++; // Erhöhe den Score nur bei richtiger Antwort
+      score++; 
     } else {
       feedbackElement.innerHTML = `
         <div class="alert alert-danger">
@@ -213,14 +213,14 @@ const quizData = [
         </div>`;
     }
     
-    // Deaktiviere Submit-Button, zeige Next-Button
+    
     submitButton.disabled = true;
     nextButton.classList.remove("d-none");
   }
 
   function nextQuestion() {
     currentQuestion++;
-    selectedAnswer = null; // Zurücksetzen für die nächste Frage
+    selectedAnswer = null; 
     
     if (currentQuestion < quizData.length) {
       showQuestion();
@@ -238,14 +238,14 @@ const quizData = [
         <button type="button" class="btn btn-primary mt-3" id="restart-btn">Quiz neu starten</button>
       </div>`;
     
-    // Restart-Button Event hinzufügen
+   
     document.getElementById("restart-btn").addEventListener("click", restartQuiz);
     
-    // Verstecke die Quiz-Buttons
+
     submitButton.classList.add("d-none");
     nextButton.classList.add("d-none");
     
-    // Zeige Feedback-Bereich
+    
     feedbackElement.classList.add("visually-hidden");
   }
   
@@ -265,11 +265,11 @@ const quizData = [
     showQuestion();
   }
 
-  // Event-Listener für Form-Submit und Next-Button
+  
   quizForm.addEventListener("submit", checkAnswer);
   nextButton.addEventListener("click", nextQuestion);
 
-  // Quiz starten
+  
   showQuestion();
 });
 </script>
